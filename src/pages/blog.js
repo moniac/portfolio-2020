@@ -51,7 +51,7 @@ const BlogIndex = ({ data }) => {
           Search
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 mb-8
-    text-gray-700 leading-tight focus:outline-none :shadow-outline"
+    text-gray-700 leading-tight focus:outline-none :shadow-outline max-w-sm flex"
             type="text"
             value={search}
             onChange={e => setSearch(e.target.value)}
