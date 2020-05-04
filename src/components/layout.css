@@ -171,3 +171,9 @@ html {
 html {
   overflow-y: scroll;
 }
+
+code {
+  background: hsl(225deg, 16%, 90%);
+  border-radius: 0.25rem;
+  padding: 0 0.4rem;
+}

@@ -66,7 +66,7 @@ const BlogIndex = ({ data }) => {
                 initial="hidden"
                 animate="visible"
                 variants={variants}
-                positionTransition
+                positionTransition={true}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.225 }}
               >
