@@ -36,7 +36,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Nav siteTitle={data.site.siteMetadata.title} links={Links} />
+      <Nav links={Links} />
       <main>{children}</main>
     </>
   )

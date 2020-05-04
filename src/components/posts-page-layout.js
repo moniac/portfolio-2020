@@ -7,11 +7,26 @@ import GradientHeading from "../components/GradientHeading/GradientHeading"
 import Layout from "./layout"
 import BlogLayout from "../Layouts/BlogLayout"
 import Code from "../components/Code"
+import theme from "prism-react-renderer/themes/nightOwl"
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live"
+
+const LiveCode = props => (
+  <LiveProvider code={props.children.props.children.trim()} theme={theme}>
+    <LiveEditor />
+    <LiveError />
+    <LivePreview />
+  </LiveProvider>
+)
 
 const shortcodes = { Link } // Provide common components here
 
 const replacedComponents = {
   pre: preProps => {
+    console.log(preProps.children.props["react-live"], preProps.children.props)
+
+    if (preProps.children.props["react-live"]) {
+      return <LiveCode {...preProps} />
+    }
     const props = preToCodeBlock(preProps)
     // if there's a codeString and some props, we passed the test
     if (props) {
