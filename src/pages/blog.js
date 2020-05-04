@@ -3,11 +3,25 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import BlogLayout from "../Layouts/BlogLayout"
 import GradientHeading from "../components/GradientHeading/GradientHeading"
+import { motion, AnimatePresence } from "framer-motion"
+
+const Li = motion.li
 
 const BlogIndex = ({ data }) => {
   const { edges: posts } = data.allMdx
   const [allPosts, setAllPosts] = useState(posts)
   const [search, setSearch] = useState("")
+
+  const variants = {
+    visible: i => ({
+      opacity: 1,
+      transform: "rotate(0deg)",
+      transition: {
+        delay: i * 0.1,
+      },
+    }),
+    hidden: { opacity: 0, transform: "rotate(-4deg)" },
+  }
 
   useEffect(() => {
     if (search.length > 0) {
@@ -27,6 +41,8 @@ const BlogIndex = ({ data }) => {
     setAllPosts(posts)
   }, [search, posts])
 
+  console.log(allPosts)
+
   return (
     <Layout>
       <BlogLayout>
@@ -42,14 +58,25 @@ const BlogIndex = ({ data }) => {
           />
         </label>
         <ul>
-          {allPosts.map(({ node: post }) => (
-            <li key={post.id}>
-              <Link to={post.fields.slug}>
-                <h2>{post.frontmatter.title}</h2>
-              </Link>
-              <p>{post.excerpt}</p>
-            </li>
-          ))}
+          <AnimatePresence>
+            {allPosts.map(({ node: post }, i) => (
+              <motion.li
+                key={post.id}
+                custom={i}
+                initial="hidden"
+                animate="visible"
+                variants={variants}
+                positionTransition
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.225 }}
+              >
+                <Link to={post.fields.slug}>
+                  <h2>{post.frontmatter.title}</h2>
+                </Link>
+                <p>{post.excerpt}</p>
+              </motion.li>
+            ))}
+          </AnimatePresence>
         </ul>
       </BlogLayout>
     </Layout>

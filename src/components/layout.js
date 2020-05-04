@@ -1,15 +1,9 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import Seo from "../components/seo"
 
-import Nav from "./nav"
+import Nav from "../components/Nav/Nav"
 import "./layout.css"
 
 const Links = [
@@ -20,6 +14,7 @@ const Links = [
   {
     name: "Blog",
     link: "blog",
+    partiallyActive: true,
   },
 ]
 
@@ -36,6 +31,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <Seo {...data.site.siteMetadata} />
       <Nav links={Links} />
       <main>{children}</main>
     </>

@@ -1,0 +1,15 @@
+.BlogContentLayout {
+  max-width: 1100px;
+  .blog-sidebar {
+    margin-top: 19.5rem;
+  }
+  .blog-content {
+    width: 100%;
+    @media (min-width: 770px) {
+      max-width: 686px;
+    }
+    > * + * {
+      margin-bottom: 1.55rem;
+    }
+  }
+}

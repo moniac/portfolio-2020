@@ -5,10 +5,13 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link } from "gatsby"
 import GradientHeading from "../components/GradientHeading/GradientHeading"
 import Layout from "./layout"
-import BlogLayout from "../Layouts/BlogLayout"
 import Code from "../components/Code"
 import theme from "prism-react-renderer/themes/nightOwl"
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live"
+import BlogContentLayout from "../Layouts/BlogContentLayout"
+import Slugger from "github-slugger"
+
+const slugger = new Slugger()
 
 const LiveCode = props => (
   <LiveProvider code={props.children.props.children.trim()} theme={theme}>
@@ -22,8 +25,6 @@ const shortcodes = { Link } // Provide common components here
 
 const replacedComponents = {
   pre: preProps => {
-    console.log(preProps.children.props["react-live"], preProps.children.props)
-
     if (preProps.children.props["react-live"]) {
       return <LiveCode {...preProps} />
     }
@@ -48,14 +49,40 @@ const allComponents = { ...shortcodes, ...replacedComponents }
 
 export default function PageTemplate({ data: { mdx } }) {
   console.log(mdx)
+  slugger.reset()
   return (
     <Layout>
-      <BlogLayout>
-        <GradientHeading>{mdx.frontmatter.title}</GradientHeading>
+      {/* <div className="container px-8 md: px-0 mx-auto pt-8 lg:pt-24">
+        <div className="w-3/5">
+          
+        </div>
+      </div> */}
+      <BlogContentLayout>
         <MDXProvider components={allComponents}>
-          <MDXRenderer>{mdx.body}</MDXRenderer>
+          <div className="blog-content flex-1 ">
+            <GradientHeading>{mdx.frontmatter.title}</GradientHeading>
+            <MDXRenderer headings={mdx.headings}>{mdx.body}</MDXRenderer>
+          </div>
         </MDXProvider>
-      </BlogLayout>
+        {Boolean(mdx.headings.length) && (
+          <aside className="blog-sidebar hidden lg:block overflow-auto pl-40 sticky">
+            <ul>
+              <li className="mb-4 text-2xl">
+                <b>Table of Contents</b>
+              </li>
+              {mdx.headings.map((heading, i) => (
+                <li key={`${heading.value} - ${i}`}>
+                  <Link
+                    to={`${mdx.fields.slug}#${slugger.slug(heading.value)}`}
+                  >
+                    {heading.value}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        )}
+      </BlogContentLayout>
     </Layout>
   )
 }
@@ -65,6 +92,14 @@ export const pageQuery = graphql`
     mdx(id: { eq: $id }) {
       id
       body
+      tableOfContents
+      headings {
+        depth
+        value
+      }
+      fields {
+        slug
+      }
       frontmatter {
         title
       }
