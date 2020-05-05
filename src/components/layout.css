@@ -145,6 +145,7 @@ img {
     0 0px 50px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   width: 100%;
+  height: auto;
 }
 .title-heading:hover .anchor > svg,
 .title-heading:focus-within .anchor > svg {
@@ -177,3 +178,13 @@ code {
   border-radius: 0.25rem;
   padding: 0 0.4rem;
 }
+
+/* .all-blog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  justify-items: stretch;
+  align-items: stretch;
+} */
