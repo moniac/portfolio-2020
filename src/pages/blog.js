@@ -15,12 +15,17 @@ const BlogIndex = ({ data }) => {
   const variants = {
     visible: i => ({
       opacity: 1,
-      transform: "rotate(0deg)",
+      transform: "rotate(0deg) scale(1)",
       transition: {
         delay: i * 0.1,
       },
+      filter: "grayscale(0)",
     }),
-    hidden: { opacity: 0, transform: "rotate(-4deg)" },
+    hidden: {
+      opacity: 0,
+      transform: "rotate(0) scale(0.6)",
+      filter: "grayscale(1)",
+    },
   }
 
   useEffect(() => {
@@ -69,8 +74,7 @@ const BlogIndex = ({ data }) => {
                 animate="visible"
                 variants={variants}
                 positionTransition={true}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.225 }}
+                exit={{ opacity: 0, filter: "grayscale(1)" }}
                 className="w-full"
               >
                 <Link to={post.fields.slug}>

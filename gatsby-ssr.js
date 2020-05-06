@@ -19,6 +19,7 @@ exports.onRenderBody = ({ setBodyAttributes, setHeadComponents }) => {
         __html: `.no-js .BlogLayout * {
       opacity: 1 !important;
       transform: rotate(0) !important;
+      filter: grayscale(0);
     }
     
     .no-js .BlogLayout input {
