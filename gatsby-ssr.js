@@ -7,7 +7,7 @@ exports.onRenderBody = ({ setBodyAttributes, setHeadComponents }) => {
   setHeadComponents([
     <script
       dangerouslySetInnerHTML={{
-        __html: `window.addEventListener("load", () => {
+        __html: `window.addEventListener("DOMContentLoaded", () => {
     document.body.className = document.body.className.replace(/\bno-js\b/, "")
   })`,
       }}
