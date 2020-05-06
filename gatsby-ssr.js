@@ -19,10 +19,10 @@ exports.onRenderBody = ({ setBodyAttributes, setHeadComponents }) => {
         __html: `.no-js .BlogLayout * {
       opacity: 1 !important;
       transform: none !important;
-      filter: grayscale(0);
+      filter: grayscale(0) !important;
     }
     
-    .no-js .BlogLayout input {
+    .no-js .BlogLayout > label {
       display: none;
     }`,
       }}
