@@ -12,5 +12,17 @@ exports.onRenderBody = ({ setBodyAttributes, setHeadComponents }) => {
   })`,
       }}
     />,
+    <style
+      dangerouslySetInnerHTML={{
+        __html: `.no-js .BlogLayout * {
+      opacity: 1 !important;
+      transform: rotate(0) !important;
+    }
+    
+    .no-js .BlogLayout input {
+      display: none;
+    }`,
+      }}
+    />,
   ])
 }

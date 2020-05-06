@@ -175,12 +175,3 @@ code {
 html {
   scroll-behavior: smooth;
 }
-
-.no-js .BlogLayout * {
-  opacity: 1 !important;
-  transform: rotate(0) !important;
-}
-
-.no-js .BlogLayout input {
-  display: none;
-}
