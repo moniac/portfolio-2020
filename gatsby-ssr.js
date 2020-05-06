@@ -18,7 +18,7 @@ exports.onRenderBody = ({ setBodyAttributes, setHeadComponents }) => {
       dangerouslySetInnerHTML={{
         __html: `.no-js .BlogLayout * {
       opacity: 1 !important;
-      transform: rotate(0) !important;
+      transform: none !important;
       filter: grayscale(0);
     }
     
