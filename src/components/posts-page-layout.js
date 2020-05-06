@@ -48,15 +48,9 @@ const replacedComponents = {
 const allComponents = { ...shortcodes, ...replacedComponents }
 
 export default function PageTemplate({ data: { mdx } }) {
-  console.log(mdx)
   slugger.reset()
   return (
     <Layout>
-      {/* <div className="container px-8 md: px-0 mx-auto pt-8 lg:pt-24">
-        <div className="w-3/5">
-          
-        </div>
-      </div> */}
       <BlogContentLayout>
         <MDXProvider components={allComponents}>
           <div className="blog-content flex-1 ">

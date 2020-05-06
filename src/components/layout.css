@@ -152,10 +152,6 @@ img {
   opacity: 1;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 .token.comment {
   font-style: normal;
 }
@@ -169,9 +165,6 @@ html {
   top: 150px;
   max-height: calc(100vh - 150px);
 }
-html {
-  overflow-y: scroll;
-}
 
 code {
   background: hsl(225deg, 16%, 90%);
@@ -179,12 +172,11 @@ code {
   padding: 0 0.4rem;
 }
 
-/* .all-blog-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  justify-items: stretch;
-  align-items: stretch;
-} */
+html {
+  scroll-behavior: smooth;
+}
+
+.no-js .BlogLayout * {
+  opacity: 1;
+  transform: rotate(0);
+}

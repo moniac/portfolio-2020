@@ -46,7 +46,9 @@ const BlogIndex = ({ data }) => {
   return (
     <Layout>
       <BlogLayout>
-        <GradientHeading>Recent posts</GradientHeading>
+        <GradientHeading>
+          Recent <br /> posts
+        </GradientHeading>
         <label>
           Search
           <input
