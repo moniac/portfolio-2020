@@ -8,7 +8,8 @@ exports.onRenderBody = ({ setBodyAttributes, setHeadComponents }) => {
     <script
       dangerouslySetInnerHTML={{
         __html: `window.addEventListener("DOMContentLoaded", () => {
-    document.body.className = document.body.className.replace(/\bno-js\b/, "")
+          console.log('hm)
+    document.body.classList.remove('no-js')
   })`,
       }}
     />,
