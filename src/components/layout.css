@@ -182,5 +182,5 @@ html {
 }
 
 .no-js .BlogLayout input {
-  display: hidden;
+  display: none;
 }
