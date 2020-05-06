@@ -177,6 +177,6 @@ html {
 }
 
 .no-js .BlogLayout * {
-  opacity: 1;
-  transform: rotate(0);
+  opacity: 1 !important;
+  transform: rotate(0) !important;
 }
