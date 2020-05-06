@@ -6,6 +6,7 @@ exports.onRenderBody = ({ setBodyAttributes, setHeadComponents }) => {
   })
   setHeadComponents([
     <script
+      key="no-js"
       dangerouslySetInnerHTML={{
         __html: `window.addEventListener("DOMContentLoaded", () => {
     document.body.classList.remove('no-js');
@@ -13,6 +14,7 @@ exports.onRenderBody = ({ setBodyAttributes, setHeadComponents }) => {
       }}
     />,
     <style
+      key="no-js-css"
       dangerouslySetInnerHTML={{
         __html: `.no-js .BlogLayout * {
       opacity: 1 !important;
