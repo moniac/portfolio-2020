@@ -180,3 +180,7 @@ html {
   opacity: 1 !important;
   transform: rotate(0) !important;
 }
+
+.no-js .BlogLayout input {
+  display: hidden;
+}
