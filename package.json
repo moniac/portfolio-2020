@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "mohammed-mulazada-portfolio-2020",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A portfolio for Mohammed 'Mo' Mulazada",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Mohammed Mulazada <mathews.kyle@gmail.com>",
   "dependencies": {
     "@mdx-js/mdx": "^1.6.1",
     "@mdx-js/react": "^1.6.1",

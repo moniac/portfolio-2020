@@ -4,29 +4,28 @@ import Layout from "../components/layout"
 import BlogLayout from "../Layouts/BlogLayout"
 import GradientHeading from "../components/GradientHeading/GradientHeading"
 import { motion, AnimatePresence } from "framer-motion"
+import ZeroState from '../images/blog_empty_state.svg'
 
-const Li = motion.li
+const variants = {
+  visible: i => ({
+    opacity: 1,
+    transform: "rotate(0deg) scale(1)",
+    transition: {
+      delay: i * 0.1,
+    },
+    filter: "grayscale(0)",
+  }),
+  hidden: {
+    opacity: 0,
+    transform: "rotate(0) scale(0.6)",
+    filter: "grayscale(1)",
+  },
+}
 
 const BlogIndex = ({ data }) => {
   const { edges: posts } = data.allMdx
   const [allPosts, setAllPosts] = useState(posts)
   const [search, setSearch] = useState("")
-
-  const variants = {
-    visible: i => ({
-      opacity: 1,
-      transform: "rotate(0deg) scale(1)",
-      transition: {
-        delay: i * 0.1,
-      },
-      filter: "grayscale(0)",
-    }),
-    hidden: {
-      opacity: 0,
-      transform: "rotate(0) scale(0.6)",
-      filter: "grayscale(1)",
-    },
-  }
 
   useEffect(() => {
     if (search.length > 0) {
@@ -46,8 +45,6 @@ const BlogIndex = ({ data }) => {
     setAllPosts(posts)
   }, [search, posts])
 
-  console.log(allPosts)
-
   return (
     <Layout>
       <BlogLayout>
@@ -58,67 +55,13 @@ const BlogIndex = ({ data }) => {
           Search
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 mb-8
-    text-gray-700 leading-tight focus:outline-none :shadow-outline max-w-sm flex "
+    text-gray-700 leading-tight focus:outline-none focus:shadow-outline max-w-sm flex"
             type="text"
             value={search}
             onChange={e => setSearch(e.target.value)}
           />
         </label>
-        <ul className="grid md:grid-flow-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4">
-          <AnimatePresence>
-            {allPosts.map(({ node: post }, i) => (
-              <motion.li
-                key={post.id}
-                custom={i}
-                initial="hidden"
-                animate="visible"
-                variants={variants}
-                positionTransition={true}
-                exit={{ opacity: 0, filter: "grayscale(1)" }}
-                className="w-full"
-              >
-                <Link to={post.fields.slug}>
-                  <div className="max-w-sm w-full rounded rounded-lg overflow-hidden shadow-xl flex flex-col h-full">
-                    <img
-                      className="w-full shadow-none rounded-none"
-                      src="https://tailwindcss.com/img/card-top.jpg"
-                      alt="Sunset in the mountains"
-                    />
-                    <div className="px-6 py-4">
-                      <div className="font-bold text-xl mb-2">
-                        {post.frontmatter.title}
-                      </div>
-                      <p className="text-gray-700 text-base">{post.excerpt}</p>
-                    </div>
-                  </div>
-
-                  {/* <div className="flex flex-col h-full">
-                    <div class="relative pb-5/6">
-                      <img
-                        class="h-full w-full object-cover rounded-lg shadow-md"
-                        src="https://tailwindcss.com/img/card-top.jpg"
-                        alt="Sunset in the mountains"
-                      />
-                    </div>
-                    <div class="relative px-4 -mt-16 h-full">
-                      <div class="bg-white p-6 rounded-lg shadow-lg h-full">
-                        <div class="flex items-baseline">
-                          <span class="inline-block bg-teal-200 text-teal-800 text-xs px-2 rounded-full uppercase font-semibold tracking-wide">
-                            New
-                          </span>
-                        </div>
-                        <h4 class="mt-1 font-semibold text-lg leading-tight truncate">
-                          {post.frontmatter.title}
-                        </h4>
-                        <div class="mt-1">{post.excerpt}</div>
-                      </div>
-                    </div>
-                  </div> */}
-                </Link>
-              </motion.li>
-            ))}
-          </AnimatePresence>
-        </ul>
+        {renderBlogPostsORZeroState(allPosts)}
       </BlogLayout>
     </Layout>
   )
@@ -142,3 +85,38 @@ export const pageQuery = graphql`
   }
 `
 export default BlogIndex
+
+function renderBlogPostsORZeroState(allPosts) {
+  if (allPosts.length) {
+    return renderBlogPosts(allPosts)
+  }
+
+  return renderZeroState()
+}
+
+function renderZeroState() {
+  return <img className="max-w-xs mx-auto my-16" src={ZeroState} />
+}
+
+function renderBlogPosts(allPosts) {
+  return (
+  <ul className="grid md:grid-flow-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4">
+    <AnimatePresence>
+      {allPosts.map(({ node: post }, i) => (<motion.li key={post.id} custom={i} initial="hidden" animate="visible" variants={variants} positionTransition={true} exit={{ opacity: 0, filter: "grayscale(1)" }} className="w-full">
+        <Link to={post.fields.slug}>
+          <div className="max-w-sm w-full rounded rounded-lg overflow-hidden shadow-xl flex flex-col h-full">
+            <img className="w-full shadow-none rounded-none" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains" />
+            <div className="px-6 py-4">
+              <div className="font-bold text-xl mb-2">
+                {post.frontmatter.title}
+              </div>
+              <p className="text-gray-700 text-base">{post.excerpt}</p>
+            </div>
+          </div>
+        </Link>
+      </motion.li>))}
+    </AnimatePresence>
+  </ul>
+  )
+}
+
