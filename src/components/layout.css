@@ -192,10 +192,10 @@ code {
 
 .ocean { 
   height: 5%;
-  width: 100%;
+  width: 101vw;
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: -4px;
   background: var(--color-radialCoverBackground);
   
   @media (min-width: 768px) {
