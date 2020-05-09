@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import containerStyles from "./Nav.module.css"
+import DarkModeToggler from "../DarkModeToggler/DarkModeToggler"
 
 const Nav = props => {
   const { links } = props
@@ -11,7 +12,7 @@ const Nav = props => {
       className={
         containerStyles.Nav +
         " " +
-        "border border-bottom-blue-500 border-opacity-75 bg-white"
+        "border-bottom-blue-500 border-opacity-75"
       }
     >
       <ul className="px-8">
@@ -27,6 +28,10 @@ const Nav = props => {
             </Link>
           </li>
         ))}
+
+        <li className="inline-block">
+          <DarkModeToggler/>
+        </li>
       </ul>
     </nav>
   )

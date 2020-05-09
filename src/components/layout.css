@@ -116,6 +116,11 @@ h6 {
     background: none;
     height: 30px;
     width: 30px;
+    display: none;
+
+    @media (min-width: 768px) {
+      display: inline;
+    }
   }
 
   &:hover,
@@ -167,7 +172,7 @@ h2 {
 }
 
 code {
-  background: hsl(225deg, 16%, 90%);
+  background: var(--color-codeBlock);
   border-radius: 0.25rem;
   padding: 0 0.4rem;
 }

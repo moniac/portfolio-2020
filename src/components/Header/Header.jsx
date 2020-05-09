@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 
 const Header = () => {
   return (
-    <header className={`${containerStyles.Header} text-white p-10`}>
+    <header className={`${containerStyles.Header} p-10`}>
       <Link className={`${containerStyles.Logo} flex`} to="/">
         <img src={logo} />
         <aside className="ml-4 mb-2">
