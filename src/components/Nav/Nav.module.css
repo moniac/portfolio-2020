@@ -2,8 +2,14 @@
   overflow-y: overlay;
   display: flex;
   justify-content: center;
+  background-color: var(--color-backgroundHighlight);
+  position: sticky;
+  top: 0;
+  z-index: 2;
   > ul {
     width: 686px;
+    display: flex;
+    align-items: center;
 
     @media (min-width: 770px) {
       width: 100%;
@@ -11,6 +17,14 @@
     overflow-y: overlay;
     > * + * {
       margin-left: 1rem;
+
+      &:last-of-type {
+        margin-left: auto;
+      }
+    }
+
+    a {
+      color: var(--color-text);
     }
   }
 }

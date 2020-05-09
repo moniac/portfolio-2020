@@ -1,0 +1,16 @@
+.DarkModeToggler {
+    cursor: pointer;
+    > input {
+        display: none;
+    }
+
+    img {
+        max-height: 48px;
+        opacity: 0.75;
+        transition: opacity 225ms ease;
+
+        &:hover, &:focus {
+            opacity: 1;
+        }
+    }
+}
