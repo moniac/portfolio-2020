@@ -4,6 +4,10 @@
 
 @import "tailwindcss/utilities";
 
+html {
+  scroll-behavior: smooth;
+}
+
 *,
 *::before,
 *::after {
@@ -110,7 +114,7 @@ h6 {
   .anchor > svg {
     position: absolute;
     left: 0;
-    transform: translateY(50%) translateX(-130%) rotate(-45deg);
+    transform: translateY(35%) translateX(-130%) rotate(-45deg);
     transition: opacity 200ms ease;
     opacity: 0;
     background: none;
@@ -134,6 +138,11 @@ h6 {
     }
   }
 }
+
+.octicon {
+  color: var(--color-text);
+}
+
 h1 {
   font-size: 2.375rem;
 }
@@ -177,10 +186,55 @@ code {
   padding: 0 0.4rem;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 ::-webkit-scrollbar {
   display: none;
+}
+
+.ocean { 
+  height: 5%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: var(--color-radialCoverBackground);
+  
+  @media (min-width: 768px) {
+    transform: rotate(-3deg);
+    height: 10%;
+    bottom: 7rem;
+  }
+}
+
+.wave {
+  background: var(--color-radialWaves); 
+  position: absolute;
+  top: -197px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0,-25px,0);
+  }
+  50% {
+    transform: translate3d(0,5px,0);
+  }
 }

@@ -3,9 +3,11 @@
   height: 80vh;
   overflow: hidden;
   background: var(--color-background);
+  position: relative;
 
   @media (min-width: 768px) {
-    min-height: 800px;
+    /* min-height: 800px; */
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
   }
 }
 

@@ -1,3 +1,6 @@
+import redWaves from './images/redwaves.svg'
+import blueWaves from './images/bluewaves.svg'
+
 export const COLORS = {
     text: {
       light: 'black', // white
@@ -26,6 +29,14 @@ export const COLORS = {
     radialGradient: {
       dark: 'linear-gradient(180deg, #5b5cf1, #21b3ff)',
       light: 'linear-gradient(to bottom, #f15b74, #ff6021)'
+    },
+    radialWaves: {
+      dark: `url(${blueWaves}) repeat-x`,
+      light: `url(${redWaves}) repeat-x`
+    },
+    radialCoverBackground: {
+      light: '#f15b74',
+      dark: '#015871'
     },
     // Grays, scaling from least-noticeable to most-noticeable
     gray300: {

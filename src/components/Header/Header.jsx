@@ -13,6 +13,11 @@ const Header = () => {
           <h2 className="text-base whitespace-no-wrap">Front-end Developer</h2>
         </aside>
       </Link>
+
+      <div class="ocean">
+  <div class="wave"></div>
+  <div class="wave"></div>
+</div>
     </header>
   )
 }

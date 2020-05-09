@@ -106,7 +106,12 @@ export const onRenderBody = ({ setBodyAttributes, setHeadComponents, setPreBodyC
     
     .no-js .BlogLayout > label {
       display: none;
-    }`,
+    }
+    html {
+      scroll-behavior: smooth;
+  }
+    `
+    ,
       }}
     />,
   ])

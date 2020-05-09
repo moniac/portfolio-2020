@@ -4,7 +4,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 0.9;
-  transition: all 225ms ease;
+  transition: background-color 225ms ease;
   text-transform: uppercase;
   font-weight: 700;
   white-space: normal;
