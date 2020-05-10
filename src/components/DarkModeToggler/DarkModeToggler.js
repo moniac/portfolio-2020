@@ -23,7 +23,7 @@ const DarkModeToggler = () => {
           setColorMode(ev.target.checked ? 'dark' : 'light');
         }}
       />
-      <img src={colorMode === 'dark' ? gradientMoon : gradientSun}/>
+      <img alt={colorMode === 'dark' ? 'A moon icon to toggle the websites dark mode' : 'A sun icon to toggle the websites dark mode'} src={colorMode === 'dark' ? gradientMoon : gradientSun}/>
     </label>
   );
 };

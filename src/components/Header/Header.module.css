@@ -1,9 +1,9 @@
 .Header {
-  background-image: linear-gradient(225deg, #010220 0%, #000000 100%);
+  /* background-image: linear-gradient(225deg, #010220 0%, #000000 100%); */
   height: 80vh;
   min-height: 600px;
   overflow: hidden;
-  background: var(--color-background);
+  background-color: var(--color-background);
   position: relative;
 
   @media (min-width: 768px) {
@@ -12,10 +12,7 @@
   }
 }
 
-.Logo {
-  img {
-    max-height: 52px;
-    width: 52px;
-    mix-blend-mode: difference;
-  }
+.MoniacLogo {
+  margin-bottom: 0.3rem;
+  color: var(--color-text);
 }

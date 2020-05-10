@@ -10,6 +10,7 @@ import theme from "prism-react-renderer/themes/nightOwl"
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live"
 import BlogContentLayout from "../Layouts/BlogContentLayout"
 import Slugger from "github-slugger"
+import Img from 'gatsby-image'
 
 const slugger = new Slugger()
 
@@ -56,6 +57,7 @@ export default function PageTemplate({ data: { mdx } }) {
         <MDXProvider components={allComponents}>
           <div className="blog-content flex-1 ">
             <GradientHeading>{mdx.frontmatter.title}</GradientHeading>
+            <Img fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid}/>
             <MDXRenderer headings={mdx.headings}>{mdx.body}</MDXRenderer>
           </div>
         </MDXProvider>
@@ -98,6 +100,13 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
     }
   }

@@ -199,9 +199,9 @@ code {
   background: var(--color-radialCoverBackground);
   
   @media (min-width: 768px) {
-    transform: rotate(-3deg);
+    transform: rotate(-7deg);
     height: 10%;
-    bottom: 7rem;
+    bottom: 1rem;
   }
 }
 

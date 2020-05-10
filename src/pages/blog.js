@@ -4,7 +4,9 @@ import Layout from "../components/layout"
 import BlogLayout from "../Layouts/BlogLayout"
 import GradientHeading from "../components/GradientHeading/GradientHeading"
 import { motion, AnimatePresence } from "framer-motion"
-import ZeroState from '../images/blog_empty_state.svg'
+import ZeroState from '../images/blog_empty_state.inline.svg'
+import BlogPostCard from "../components/BlogPostCard"
+
 
 const variants = {
   visible: i => ({
@@ -26,6 +28,7 @@ const BlogIndex = ({ data }) => {
   const { edges: posts } = data.allMdx
   const [allPosts, setAllPosts] = useState(posts)
   const [search, setSearch] = useState("")
+  console.log(posts)
 
   useEffect(() => {
     if (search.length > 0) {
@@ -66,15 +69,23 @@ const BlogIndex = ({ data }) => {
     </Layout>
   )
 }
+
 export const pageQuery = graphql`
   query blogIndex {
-    allMdx {
+    allMdx(filter: {fields: {instance: {eq: "blog"}}}) {
       edges {
         node {
           id
           excerpt(truncate: false, pruneLength: 100)
           frontmatter {
             title
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 400) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
           }
           fields {
             slug
@@ -95,7 +106,7 @@ function renderBlogPostsORZeroState(allPosts) {
 }
 
 function renderZeroState() {
-  return <img className="max-w-xs mx-auto my-16" src={ZeroState} />
+  return <ZeroState alt="No blog posts found image" className="max-w-xs mx-auto my-16" />
 }
 
 function renderBlogPosts(allPosts) {
@@ -103,16 +114,8 @@ function renderBlogPosts(allPosts) {
   <ul className="grid md:grid-flow-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4">
     <AnimatePresence>
       {allPosts.map(({ node: post }, i) => (<motion.li key={post.id} custom={i} initial="hidden" animate="visible" variants={variants} positionTransition={true} exit={{ opacity: 0, filter: "grayscale(1)" }} className="w-full">
-        <Link to={post.fields.slug}>
-          <div className="max-w-sm w-full rounded rounded-lg overflow-hidden shadow-xl flex flex-col h-full">
-            <img className="w-full shadow-none rounded-none" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains" />
-            <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2">
-                {post.frontmatter.title}
-              </div>
-              <p className="text-gray-700 text-base">{post.excerpt}</p>
-            </div>
-          </div>
+        <Link key={post.fields.slug} to={post.fields.slug}>
+          <BlogPostCard title={post.frontmatter.title} excerpt={post.excerpt} img={post.frontmatter.featuredImage.childImageSharp.fluid}/>
         </Link>
       </motion.li>))}
     </AnimatePresence>
