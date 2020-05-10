@@ -31,8 +31,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `posts`,
-        path: `${__dirname}/content/posts/`,
+        name: `blog`,
+        path: `${__dirname}/content/blog/`,
       },
     },
     `gatsby-plugin-remove-trailing-slashes`,

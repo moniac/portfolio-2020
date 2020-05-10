@@ -4,7 +4,7 @@ import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link } from "gatsby"
 import GradientHeading from "../components/GradientHeading/GradientHeading"
-import Layout from "./layout"
+import Layout from "../components/layout"
 import Code from "../components/Code"
 import theme from "prism-react-renderer/themes/nightOwl"
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live"
@@ -49,6 +49,7 @@ const allComponents = { ...shortcodes, ...replacedComponents }
 
 export default function PageTemplate({ data: { mdx } }) {
   slugger.reset()
+  console.log(mdx)
   return (
     <Layout>
       <BlogContentLayout>
@@ -83,7 +84,7 @@ export default function PageTemplate({ data: { mdx } }) {
 
 export const pageQuery = graphql`
   query BlogPostQuery($id: String) {
-    mdx(id: { eq: $id }) {
+    mdx(id: { eq: $id }, fields: {instance: {eq: "blog"}}) {
       id
       body
       tableOfContents
@@ -93,6 +94,7 @@ export const pageQuery = graphql`
       }
       fields {
         slug
+        instance
       }
       frontmatter {
         title
