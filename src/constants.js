@@ -36,7 +36,7 @@ export const COLORS = {
     },
     radialCoverBackground: {
       light: '#f15b74',
-      dark: '#015871'
+      dark: '#5b5cf1'
     },
     // Grays, scaling from least-noticeable to most-noticeable
     gray300: {
