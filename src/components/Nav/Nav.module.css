@@ -10,13 +10,22 @@
     width: 686px;
     display: flex;
     align-items: center;
+    overflow-y: overlay;
 
     @media (min-width: 770px) {
       width: 100%;
     }
-    overflow-y: overlay;
+
+    > li > a {
+      opacity: 0.5;
+      transition: opacity 225ms ease;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
     > * + * {
-      margin-left: 1rem;
+      margin-left: 2rem;
 
       &:last-of-type {
         margin-left: auto;
