@@ -13,7 +13,7 @@ const Links = [
   },
   {
     name: "Blog",
-    link: "blog",
+    link: "/blog",
     partiallyActive: true,
   },
 ]

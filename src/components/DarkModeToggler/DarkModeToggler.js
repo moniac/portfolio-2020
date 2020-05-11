@@ -1,8 +1,8 @@
 import React from 'react';
 import gradientMoon from '../../images/icons8-moon-and-stars-96.png'
 import gradientSun from '../../images/icons8-smiling-sun-96.png'
-import sunIcon from '../../images/icons8-sun-96.png'
-import moonIcon from '../../images/icons8-crescent-moon-96.png'
+// import sunIcon from '../../images/icons8-sun-96.png'
+// import moonIcon from '../../images/icons8-crescent-moon-96.png'
 import containerStyles from './DarkModeToggler.module.css'
 
 import { ThemeContext } from '../ThemeContext';

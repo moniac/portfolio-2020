@@ -51,7 +51,6 @@ module.exports = {
         }
       }
     },
-    `gatsby-plugin-optimize-svgs`,
     `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-postcss`,
     {
@@ -66,6 +65,7 @@ module.exports = {
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-optimize-svgs`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
