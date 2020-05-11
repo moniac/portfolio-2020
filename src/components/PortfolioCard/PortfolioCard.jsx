@@ -1,5 +1,6 @@
 import React from 'react'
 import containerStyles from './PortfolioCard.module.css'
+import { Link } from 'gatsby'
 
 const PortfolioCard = props => {
 
@@ -7,18 +8,20 @@ const PortfolioCard = props => {
         <div className={`${containerStyles.PortfolioCard} p-8 flex flex-col justify-between w-full hover:shadow-outline focus:shadow-outline`}>
             <div className="flex flex-col">
                 <h4>Blank</h4>
-                <p>Together with: Company</p>
+                <p className="font-hairline opacity-75">Together with: Company</p>
             </div>
 
-            <div>
+            <div className={containerStyles.description}>
                 <p className="italic">Blank is a website about. About two sentences.</p>
             </div>
-            {/* <p className={`${containerStyles.PortfolioCard__description}`}>test</p> */}
-            {/* <img src="https://ruler.nl/app/themes/ruler/dist/images/ruler-logo_d1ce0e5f.svg" /> */}
-            {/* <div className={`${containerStyles.ocean} ocean`}>
-                <div className="wave"></div>
-                <div className="wave"></div>
-            </div> */}
+            <div className={`${containerStyles.ocean} ocean`}>
+                <div className={`${containerStyles.wave} wave`}></div>
+                <div className={`${containerStyles.wave} wave`}></div>
+            </div>
+
+            <Link className={containerStyles.readmore}>
+                Read more
+            </Link>
         </div>
     )
 }

@@ -24,7 +24,28 @@
     z-index: 2;
 }
 
+.description {
+    z-index: 2;
+}
+
+.readmore {
+    z-index: 2;
+}
+
 .ocean {
-    bottom: -50px;
+    bottom: -100px;
     z-index: 1;
+
+    @media (min-width: 768px) {
+        transform: none;
+        bottom: -100px;
+    }
+
+    @media (min-width: 1024px) {
+        bottom: -105px;
+    }
+
+    > .wave {
+        animation: none;
+    }
 }

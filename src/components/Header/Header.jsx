@@ -14,7 +14,7 @@ const Header = () => {
         </aside>
       </Link>
 
-      <div>
+      <div className="mt-8">
         <h2>Welcome</h2>
         <p className="max-w-sm font-hairline">This is the portfolio of Mohammed Mulazada, a Web Developer based in Amsterdam.</p>
       </div>
