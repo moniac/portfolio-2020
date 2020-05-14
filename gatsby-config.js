@@ -23,7 +23,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1200
+              maxWidth: 1200,
             },
           },
         ],
@@ -47,9 +47,9 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /\.inline\.svg$/
-        }
-      }
+          include: /\.inline\.svg$/,
+        },
+      },
     },
     `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-postcss`,
@@ -66,6 +66,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-optimize-svgs`,
+    `gatsby-plugin-preact`,
     `gatsby-plugin-offline`,
   ],
 }
