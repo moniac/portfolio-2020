@@ -169,7 +169,7 @@ h2 {
 li > .active {
   border-bottom: 4px solid #21b3ff;
   margin-bottom: -0.094rem;
-  opacity: 1 !important;
+  font-weight: 600;
 }
 
 .blog-sidebar {

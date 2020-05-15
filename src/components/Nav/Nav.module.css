@@ -16,14 +16,6 @@
       width: 100%;
     }
 
-    > li > a {
-      opacity: 0.5;
-      transition: opacity 225ms ease;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
     > * + * {
       margin-left: 2rem;
 

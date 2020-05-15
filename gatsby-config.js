@@ -69,5 +69,14 @@ module.exports = {
     `gatsby-plugin-preact`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://www.mohammedmulazada.com",
+        sitemap: "https://www.mohammedmulazada.com/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
   ],
 }
