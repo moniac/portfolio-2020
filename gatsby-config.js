@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Portfolio | Mohammed Mulazada`,
+    siteUrl: `https://www.mohammedmulazada.com`,
     description: `This is the portfolio of Mohammed Mulazada, an Amsterdam based web developer.`,
     author: `@thisismoniac`,
   },
