@@ -68,5 +68,6 @@ module.exports = {
     `gatsby-plugin-optimize-svgs`,
     `gatsby-plugin-preact`,
     `gatsby-plugin-offline`,
+    `gatsby-plugin-netlify`,
   ],
 }
