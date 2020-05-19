@@ -45,7 +45,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   const result = await graphql(`
     query {
-      allMdx {
+      allMdx(filter: { fields: { instance: { eq: "blog" } } }) {
         edges {
           node {
             id

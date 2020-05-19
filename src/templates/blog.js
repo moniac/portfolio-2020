@@ -50,6 +50,7 @@ const allComponents = { ...shortcodes, ...replacedComponents }
 
 export default function PageTemplate({ data: { mdx } }) {
   slugger.reset()
+  console.log(mdx)
 
   return (
     <Layout>
