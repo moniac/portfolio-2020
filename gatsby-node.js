@@ -7,7 +7,6 @@
 // You can delete this file if you're not using it
 
 const { createFilePath } = require("gatsby-source-filesystem")
-const path = require("path")
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
@@ -70,7 +69,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   posts.forEach(({ node }) => {
     const instance = node.fields.instance
     if (!templates[instance]) {
-      templates[instance] = require.resolve('./src/templates/blog.js')
+      templates[instance] = require.resolve("./src/templates/blog.js")
     }
     createPage({
       // This is the slug you created before

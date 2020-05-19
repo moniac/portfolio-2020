@@ -10,7 +10,7 @@ import theme from "prism-react-renderer/themes/nightOwl"
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live"
 import BlogContentLayout from "../Layouts/BlogContentLayout"
 import Slugger from "github-slugger"
-import Img from 'gatsby-image'
+import Img from "gatsby-image"
 
 const slugger = new Slugger()
 
@@ -50,14 +50,14 @@ const allComponents = { ...shortcodes, ...replacedComponents }
 
 export default function PageTemplate({ data: { mdx } }) {
   slugger.reset()
-  console.log(mdx)
+
   return (
     <Layout>
       <BlogContentLayout>
         <MDXProvider components={allComponents}>
           <div className="blog-content flex-1 ">
             <GradientHeading>{mdx.frontmatter.title}</GradientHeading>
-            <Img fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid}/>
+            <Img fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid} />
             <MDXRenderer headings={mdx.headings}>{mdx.body}</MDXRenderer>
           </div>
         </MDXProvider>
@@ -86,7 +86,7 @@ export default function PageTemplate({ data: { mdx } }) {
 
 export const pageQuery = graphql`
   query BlogPostQuery($id: String) {
-    mdx(id: { eq: $id }, fields: {instance: {eq: "blog"}}) {
+    mdx(id: { eq: $id }, fields: { instance: { eq: "blog" } }) {
       id
       body
       tableOfContents

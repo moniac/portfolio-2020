@@ -4,9 +4,8 @@ import Layout from "../components/layout"
 import BlogLayout from "../Layouts/BlogLayout"
 import GradientHeading from "../components/GradientHeading/GradientHeading"
 import { motion, AnimatePresence } from "framer-motion"
-import ZeroState from '../images/blog_empty_state.inline.svg'
+import ZeroState from "../images/blog_empty_state.inline.svg"
 import BlogPostCard from "../components/BlogPostCard"
-
 
 const variants = {
   visible: i => ({
@@ -28,7 +27,6 @@ const BlogIndex = ({ data }) => {
   const { edges: posts } = data.allMdx
   const [allPosts, setAllPosts] = useState(posts)
   const [search, setSearch] = useState("")
-  console.log(posts)
 
   useEffect(() => {
     if (search.length > 0) {
@@ -72,7 +70,7 @@ const BlogIndex = ({ data }) => {
 
 export const pageQuery = graphql`
   query blogIndex {
-    allMdx(filter: {fields: {instance: {eq: "blog"}}}) {
+    allMdx(filter: { fields: { instance: { eq: "blog" } } }) {
       edges {
         node {
           id
@@ -106,20 +104,39 @@ function renderBlogPostsORZeroState(allPosts) {
 }
 
 function renderZeroState() {
-  return <ZeroState alt="No blog posts found image" className="max-w-xs mx-auto my-16" />
+  return (
+    <ZeroState
+      alt="No blog posts found image"
+      className="max-w-xs mx-auto my-16"
+    />
+  )
 }
 
 function renderBlogPosts(allPosts) {
   return (
-  <ul className="grid md:grid-flow-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4">
-    <AnimatePresence>
-      {allPosts.map(({ node: post }, i) => (<motion.li key={post.id} custom={i} initial="hidden" animate="visible" variants={variants} positionTransition={true} exit={{ opacity: 0, filter: "grayscale(1)" }} className="w-full">
-        <Link key={post.fields.slug} to={post.fields.slug}>
-          <BlogPostCard title={post.frontmatter.title} excerpt={post.excerpt} img={post.frontmatter.featuredImage.childImageSharp.fluid}/>
-        </Link>
-      </motion.li>))}
-    </AnimatePresence>
-  </ul>
+    <ul className="grid md:grid-flow-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4">
+      <AnimatePresence>
+        {allPosts.map(({ node: post }, i) => (
+          <motion.li
+            key={post.id}
+            custom={i}
+            initial="hidden"
+            animate="visible"
+            variants={variants}
+            positionTransition={true}
+            exit={{ opacity: 0, filter: "grayscale(1)" }}
+            className="w-full"
+          >
+            <Link key={post.fields.slug} to={post.fields.slug}>
+              <BlogPostCard
+                title={post.frontmatter.title}
+                excerpt={post.excerpt}
+                img={post.frontmatter.featuredImage.childImageSharp.fluid}
+              />
+            </Link>
+          </motion.li>
+        ))}
+      </AnimatePresence>
+    </ul>
   )
 }
-

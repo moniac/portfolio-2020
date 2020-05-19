@@ -45,6 +45,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `work`,
+        path: `${__dirname}/content/work/`,
+      },
+    },
+    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
@@ -67,7 +74,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-optimize-svgs`,
-    `gatsby-plugin-preact`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-sitemap`,
