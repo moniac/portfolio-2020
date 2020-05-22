@@ -85,6 +85,30 @@ pre {
     border-radius: 5px;
   }
 }
+
+#react-live {
+  font-size: 1rem;
+  > div textarea,
+  > div pre * {
+    font-family: monospace !important;
+  }
+
+  > center:last-of-type {
+    background-color: var(--color-codeBlock);
+    height: auto;
+    overflow: hidden;
+  }
+
+  > pre:last-of-type {
+    background-color: var(--color-codeBlock);
+    height: auto;
+    overflow: hidden;
+  }
+
+  > center * {
+    margin: 1.55rem;
+  }
+}
 .highlight-line {
   background-color: rgba(201, 167, 255, 0.2);
   margin: 0 -10px;

@@ -15,11 +15,15 @@ import Img from "gatsby-image"
 const slugger = new Slugger()
 
 const LiveCode = props => (
-  <LiveProvider code={props.children.props.children.trim()} theme={theme}>
-    <LiveEditor />
-    <LiveError />
-    <LivePreview />
-  </LiveProvider>
+  <div id="react-live">
+    <LiveProvider code={props.children.props.children.trim()} theme={theme}>
+      <LiveEditor />
+      <LiveError />
+      <center>
+        <LivePreview />
+      </center>
+    </LiveProvider>
+  </div>
 )
 
 const shortcodes = { Link } // Provide common components here
@@ -27,7 +31,7 @@ const shortcodes = { Link } // Provide common components here
 const replacedComponents = {
   pre: preProps => {
     if (preProps.children.props["react-live"]) {
-      return <LiveCode {...preProps} />
+      return <LiveCode {...preProps} className="dasdas" />
     }
     const props = preToCodeBlock(preProps)
     // if there's a codeString and some props, we passed the test

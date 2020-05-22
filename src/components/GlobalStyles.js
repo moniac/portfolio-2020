@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components"
 
 const GlobalStyles = createGlobalStyle`
   *, *:before, *:after {
@@ -6,6 +6,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: Futura, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
+  
   body {
     background: var(--color-background);
     color: var(--color-text);
@@ -15,6 +16,6 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     scroll-margin-top: 4rem;
   }
-`;
+`
 
-export default GlobalStyles;
+export default GlobalStyles
