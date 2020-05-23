@@ -1,5 +1,4 @@
 .Nav {
-  overflow-y: overlay;
   display: flex;
   justify-content: center;
   background-color: var(--color-backgroundHighlight);
@@ -7,11 +6,13 @@
   top: 0;
   z-index: 5;
   flex-direction: column;
+  width: 100%;
   > ul {
     width: 686px;
     display: flex;
     align-items: center;
-    overflow-y: overlay;
+    overflow: hidden;
+    width: 100%;
 
     @media (min-width: 770px) {
       width: 100%;
