@@ -8,7 +8,7 @@ const Circle = props => {
   return (
     <motion.circle
       id="Oval"
-      fill={'var(--color-darkModeTogle)'}
+      fill={'var(--color-darkModeToggle)'}
       r="17.5px"
       initial={false}
       {...props}
@@ -56,8 +56,8 @@ const AnimatedDarkModeToggler = props => {
           cx="200.5"
           cy="292.5px"
           variants={{
-            dark: { cy: '200.5px', scale: 0 },
-            light: { cy: '292.5px', scale: 1 },
+            dark: { cy: '200.5px', scale: 0, opacity: 0 },
+            light: { cy: '292.5px', scale: 1, opacity: 1 },
           }}
           animate={animateValue}
           transition={{ duration: 0.2, delay: colorMode === 'light' && 0.2 }}
@@ -66,8 +66,8 @@ const AnimatedDarkModeToggler = props => {
           cx="114.5px"
           cy="251.5"
           variants={{
-            dark: { cx: '150px', scale: 0 },
-            light: { cx: '114.5px', scale: 1 },
+            dark: { cx: '150px', scale: 0, opacity: 0 },
+            light: { cx: '114.5px', scale: 1, opacity: 1 },
           }}
           animate={animateValue}
           transition={{ duration: 0.2, delay: colorMode === 'light' && 0.3 }}
@@ -76,8 +76,8 @@ const AnimatedDarkModeToggler = props => {
           cx="114.5px"
           cy="169.5px"
           variants={{
-            dark: { cx: '150px', scale: 0 },
-            light: { cx: '114.5px', scale: 1 },
+            dark: { cx: '150px', scale: 0, opacity: 0 },
+            light: { cx: '114.5px', scale: 1, opacity: 1 },
           }}
           animate={animateValue}
           transition={{ duration: 0.2, delay: colorMode === 'light' && 0.4 }}
@@ -87,8 +87,8 @@ const AnimatedDarkModeToggler = props => {
           cx="200.5"
           cy="111.5px"
           variants={{
-            dark: { cy: '160px', scale: 0 },
-            light: { cy: '111.5px', scale: 1 },
+            dark: { cy: '160px', scale: 0, opacity: 0 },
+            light: { cy: '111.5px', scale: 1, opacity: 1 },
           }}
           transition={{ duration: 0, delay: colorMode === 'light' && 0.5 }}
           animate={animateValue}
@@ -97,8 +97,8 @@ const AnimatedDarkModeToggler = props => {
           cx="285.5px"
           cy="169.5"
           variants={{
-            dark: { cx: '230px', scale: 0 },
-            light: { cx: '285.5px', scale: 1 },
+            dark: { cx: '230px', scale: 0, opacity: 0 },
+            light: { cx: '285.5px', scale: 1, opacity: 1 },
           }}
           animate={animateValue}
           transition={{ duration: 0.2, delay: colorMode === 'light' && 0.6 }}
@@ -107,8 +107,8 @@ const AnimatedDarkModeToggler = props => {
           cx="285.5px"
           cy="251.5"
           variants={{
-            dark: { cx: '240px', scale: 0 },
-            light: { cx: '285.5px', scale: 1 },
+            dark: { cx: '240px', scale: 0, opacity: 0 },
+            light: { cx: '285.5px', scale: 1, opacity: 1 },
           }}
           animate={animateValue}
           transition={{ duration: 0.2, delay: colorMode === 'light' && 0.7 }}
@@ -123,7 +123,7 @@ const AnimatedDarkModeToggler = props => {
           }}
           animate={colorMode}
           initial={false}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.6 }}
         />
         <Circle
           cx="250"
@@ -135,16 +135,16 @@ const AnimatedDarkModeToggler = props => {
               transform: 'rotate(0deg)',
               cx: 250,
               opacity: 1,
+              transition: { duration: 0.2 },
               fill: 'hsl(210deg, 38%, 15%)',
-              transition: { duration: 0.1 },
             },
             light: {
               r: '58px',
               transform: 'rotate(90deg)',
               cx: 450,
               opacity: 0,
-              fill: 'white',
-              transition: { duration: 0.1 },
+              transition: { duration: 0 },
+              fill: 'hsl(210deg, 38%, 15%)',
             },
           }}
           animate={animateValue}

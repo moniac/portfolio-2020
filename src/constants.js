@@ -14,7 +14,7 @@ export const COLORS = {
     light: 'hsl(0, 100%, 100%)',
     dark: 'hsl(210deg, 38%, 15%)',
   },
-  darkModeTogle: {
+  darkModeToggle: {
     light: 'rgba(51, 51, 51, 1)',
     dark: 'rgba(255, 255, 255, 1)',
   },
