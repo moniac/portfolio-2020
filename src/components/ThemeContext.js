@@ -13,7 +13,6 @@ export const ThemeProvider = ({ children }) => {
 
   React.useEffect(() => {
     const root = window.document.documentElement;
-
     // Because colors matter so much for the initial page view, we're
     // doing a lot of the work in gatsby-ssr. That way it can happen before
     // the React component tree mounts.
@@ -23,6 +22,12 @@ export const ThemeProvider = ({ children }) => {
 
     rawSetColorMode(initialColorValue);
   }, []);
+
+  React.useEffect(() => {
+    window.document.body.classList.add('transition');
+
+    return () => window.document.body.classList.remove('transition');
+  }, [colorMode]);
 
   const contextValue = React.useMemo(() => {
     function setColorMode(newValue) {
