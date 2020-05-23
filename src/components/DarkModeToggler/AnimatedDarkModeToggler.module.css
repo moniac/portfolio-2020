@@ -1,0 +1,26 @@
+.AnimatedDarkModeToggler {
+  cursor: pointer;
+  > input {
+    opacity: 0;
+    height: 1px;
+    position: absolute;
+
+    > svg {
+      transform: rotate(0) !important;
+      transition: transform;
+    }
+
+    &:hover ~ svg {
+      animation: hover 1s linear alternate infinite;
+    }
+  }
+}
+
+@keyframes hover {
+  0% {
+    transform: translateY(10%), rotate(0) !important;
+  }
+  100% {
+    transform: translateY(10%), rotate(0) !important;
+  }
+}

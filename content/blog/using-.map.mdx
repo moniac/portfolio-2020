@@ -13,9 +13,38 @@ not necessarily thinking about what is the best **solution**.
 
 ## An Example
 
-```js react-live
-() => {
-  const a = 1;
-  return a;
-};
+Let's say we have this array below.
+
+```js
+const arrayOfNumbers = [2, 8, 42];
 ```
+
+And we wish to double every number in that array, and return it to another array.
+
+In the past, I would have done this:
+
+```js
+const arrayOfNumbers = [2, 8, 42];
+const results = [];
+
+arrayOfNumbers.forEach(number => {
+  results.push(number * 2);
+});
+
+// results now equals [4, 16, 84]
+```
+
+As we can see, it works. It's a solution to the problem. But how can this be improved upon?
+
+## Introducing .map
+
+```js {2}
+const arrayOfNumbers = [2, 8, 42];
+const results = arrayOfNumbers.map(number => number * 2);
+
+// results now equals [4, 16, 84]
+```
+
+<img src="../../src/images/placeholder.jpg" />
+
+Wow, that saved us about two lines of code.

@@ -1,0 +1,13 @@
+:root {
+  --scroll: 0%;
+}
+
+.Progress {
+  background: linear-gradient(to right, #21b3ff var(--scroll), transparent 0);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 4px;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+}

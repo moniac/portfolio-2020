@@ -1,18 +1,18 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
-import containerStyles from "./Nav.module.css"
-import DarkModeToggler from "../DarkModeToggler/DarkModeToggler"
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
+import containerStyles from './Nav.module.css';
+import DarkModeToggler from '../DarkModeToggler/DarkModeToggler';
+import Progress from '../Progress/Progress';
+import AnimatedDarkModeToggler from '../DarkModeToggler/AnimatedDarkModeToggler';
 
 const Nav = props => {
-  const { links } = props
+  const { links, showProgressBar } = props;
 
   return (
     <nav
       className={
-        containerStyles.Nav +
-        " " +
-        "border-bottom-blue-500 border-opacity-75"
+        containerStyles.Nav + ' ' + 'border-bottom-blue-500 border-opacity-75'
       }
     >
       <ul className="px-8">
@@ -30,19 +30,20 @@ const Nav = props => {
         ))}
 
         <li className="inline-block">
-          <DarkModeToggler/>
+          <AnimatedDarkModeToggler />
         </li>
       </ul>
+      {showProgressBar && <Progress />}
     </nav>
-  )
-}
+  );
+};
 
 Nav.propTypes = {
   siteTitle: PropTypes.string,
-}
+};
 
 Nav.defaultProps = {
   siteTitle: ``,
-}
+};
 
-export default Nav
+export default Nav;

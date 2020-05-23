@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   *, *:before, *:after {
@@ -16,6 +16,6 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     scroll-margin-top: 4rem;
   }
-`
+`;
 
-export default GlobalStyles
+export default GlobalStyles;

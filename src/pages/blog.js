@@ -1,50 +1,50 @@
-import React, { useState, useEffect } from "react"
-import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
-import BlogLayout from "../Layouts/BlogLayout"
-import GradientHeading from "../components/GradientHeading/GradientHeading"
-import { motion, AnimatePresence } from "framer-motion"
-import ZeroState from "../images/blog_empty_state.inline.svg"
-import BlogPostCard from "../components/BlogPostCard"
+import React, { useState, useEffect } from 'react';
+import { Link, graphql } from 'gatsby';
+import Layout from '../components/layout';
+import BlogLayout from '../Layouts/BlogLayout';
+import GradientHeading from '../components/GradientHeading/GradientHeading';
+import { motion, AnimatePresence } from 'framer-motion';
+import ZeroState from '../images/blog_empty_state.inline.svg';
+import BlogPostCard from '../components/BlogPostCard';
 
 const variants = {
   visible: i => ({
     opacity: 1,
-    transform: "rotate(0deg) scale(1)",
+    transform: 'rotate(0deg) scale(1)',
     transition: {
       delay: i * 0.1,
     },
-    filter: "grayscale(0)",
+    filter: 'grayscale(0)',
   }),
   hidden: {
     opacity: 0,
-    transform: "rotate(0) scale(0.6)",
-    filter: "grayscale(1)",
+    transform: 'rotate(0) scale(0.6)',
+    filter: 'grayscale(1)',
   },
-}
+};
 
 const BlogIndex = ({ data }) => {
-  const { edges: posts } = data.allMdx
-  const [allPosts, setAllPosts] = useState(posts)
-  const [search, setSearch] = useState("")
+  const { edges: posts } = data.allMdx;
+  const [allPosts, setAllPosts] = useState(posts);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     if (search.length > 0) {
-      const formattedSearch = search.toLowerCase().trim()
+      const formattedSearch = search.toLowerCase().trim();
 
       const filteredPosts = posts.filter(post =>
         post.node.frontmatter.title
           .toLowerCase()
           .trim()
           .includes(formattedSearch)
-      )
+      );
 
-      setAllPosts(filteredPosts)
-      return
+      setAllPosts(filteredPosts);
+      return;
     }
 
-    setAllPosts(posts)
-  }, [search, posts])
+    setAllPosts(posts);
+  }, [search, posts]);
 
   return (
     <Layout>
@@ -52,21 +52,25 @@ const BlogIndex = ({ data }) => {
         <GradientHeading>
           Recent <br /> posts
         </GradientHeading>
-        <label>
-          Search
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 mb-8
+        <form role="search">
+          <label>
+            Search
+            <input
+              aria-label="On this page"
+              name="search"
+              className="shadow appearance-none border rounded w-full py-2 px-3 mb-8
     text-gray-700 leading-tight focus:outline-none focus:shadow-outline max-w-sm flex"
-            type="text"
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-          />
-        </label>
+              type="text"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            />
+          </label>
+        </form>
         {renderBlogPostsORZeroState(allPosts)}
       </BlogLayout>
     </Layout>
-  )
-}
+  );
+};
 
 export const pageQuery = graphql`
   query blogIndex {
@@ -92,15 +96,15 @@ export const pageQuery = graphql`
       }
     }
   }
-`
-export default BlogIndex
+`;
+export default BlogIndex;
 
 function renderBlogPostsORZeroState(allPosts) {
   if (allPosts.length) {
-    return renderBlogPosts(allPosts)
+    return renderBlogPosts(allPosts);
   }
 
-  return renderZeroState()
+  return renderZeroState();
 }
 
 function renderZeroState() {
@@ -109,7 +113,7 @@ function renderZeroState() {
       alt="No blog posts found image"
       className="max-w-xs mx-auto my-16"
     />
-  )
+  );
 }
 
 function renderBlogPosts(allPosts) {
@@ -124,10 +128,14 @@ function renderBlogPosts(allPosts) {
             animate="visible"
             variants={variants}
             positionTransition={true}
-            exit={{ opacity: 0, filter: "grayscale(1)" }}
+            exit={{ opacity: 0, filter: 'grayscale(1)' }}
             className="w-full"
           >
-            <Link key={post.fields.slug} to={post.fields.slug}>
+            <Link
+              key={post.fields.slug}
+              to={post.fields.slug}
+              aria-label={`Go to blog post about ${post.frontmatter.title}`}
+            >
               <BlogPostCard
                 title={post.frontmatter.title}
                 excerpt={post.excerpt}
@@ -138,5 +146,5 @@ function renderBlogPosts(allPosts) {
         ))}
       </AnimatePresence>
     </ul>
-  )
+  );
 }
