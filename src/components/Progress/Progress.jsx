@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import containerStyles from './Progress.module.css';
 
-var h = document?.documentElement,
-  b = document?.body,
-  st = 'scrollTop',
-  sh = 'scrollHeight',
-  scroll;
-
 const Progress = props => {
   const progressBar = useRef(null);
+
+  var h = document?.documentElement,
+    b = document?.body,
+    st = 'scrollTop',
+    sh = 'scrollHeight',
+    scroll;
 
   function update() {
     scroll = ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100;
