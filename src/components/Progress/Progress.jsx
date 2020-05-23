@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import containerStyles from './Progress.module.css';
 
-var h = document.documentElement,
-  b = document.body,
+var h = document?.documentElement,
+  b = document?.body,
   st = 'scrollTop',
   sh = 'scrollHeight',
   scroll;
