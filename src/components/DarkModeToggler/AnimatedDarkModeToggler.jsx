@@ -50,7 +50,7 @@ const AnimatedDarkModeToggler = props => {
         variants={{
           dark: { rotate: 0 },
           light: { rotate: colorMode === 'light' && 180 },
-        }}
+        }},
         initial={false},
         animate={animateValue}
         style={{ originX: '50%', originY: '50%' }}
