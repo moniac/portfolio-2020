@@ -153,13 +153,12 @@ const AnimatedDarkModeToggler = props => {
           cy="200"
           r="58px"
           variants={{
-            dark: { r: '90px' },
-            light: { r: '58px' },
+            dark: { r: '90px', fill: '#ffffff' },
+            light: { r: '58px', fill: '#333333' },
           }}
           animate={colorMode}
           initial={false}
           transition={{ duration: 0.6 }}
-          fill={'var(--color-darkModeToggle)'}
         />
         <Circle
           cx="250"
@@ -171,14 +170,14 @@ const AnimatedDarkModeToggler = props => {
               cx: 250,
               opacity: 1,
               transition: { duration: 0, type: 'spring', stiffness: 50 },
-              fill: 'hsl(210deg, 38%, 15%)',
+              fill: '#182635',
             },
             light: {
               r: '40px',
               cx: 450,
               opacity: 0,
               transition: { duration: 0 },
-              fill: 'hsl(210deg, 38%, 15%)',
+              fill: '#182635',
             },
           }}
           animate={animateValue}

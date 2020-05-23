@@ -7,31 +7,31 @@ export const COLORS = {
     dark: 'white', // near-black
   },
   background: {
-    light: 'hsl(0deg, 0%, 100%)', // white
+    light: '#ffffff', // white
     dark: '#121212', // navy navy blue
   },
   backgroundHighlight: {
-    light: 'hsl(0, 100%, 100%)',
-    dark: 'hsl(210deg, 38%, 15%)',
+    light: '#ffffff',
+    dark: '#182635',
   },
   darkModeToggle: {
-    light: 'rgba(51, 51, 51, 1)',
-    dark: 'rgba(255, 255, 255, 1)',
+    light: '#333333',
+    dark: '#ffffff',
   },
   codeBlock: {
-    light: 'hsl(225deg, 16%, 90%)',
-    dark: 'hsl(210deg, 38%, 15%)',
+    light: 'hsl(225, 16%, 90%)',
+    dark: '#182635',
   },
   primary: {
-    light: 'hsl(340deg, 100%, 40%)', // Pinkish-red
-    dark: 'hsl(50deg, 100%, 50%)', // Yellow
+    light: 'hsl(340, 100%, 40%)', // Pinkish-red
+    dark: 'hsl(50, 100%, 50%)', // Yellow
   },
   secondary: {
-    light: 'hsl(250deg, 100%, 50%)', // Purplish-blue
-    dark: 'hsl(190deg, 100%, 40%)', // Cyan
+    light: 'hsl(250, 100%, 50%)', // Purplish-blue
+    dark: 'hsl(190, 100%, 40%)', // Cyan
   },
   radialGradient: {
-    dark: 'linear-gradient(180deg, #5b5cf1, #21b3ff)',
+    dark: 'linear-gradient(180, #5b5cf1, #21b3ff)',
     light: 'linear-gradient(to bottom, #f15b74, #ff6021)',
   },
   radialWaves: {
@@ -44,16 +44,16 @@ export const COLORS = {
   },
   // Grays, scaling from least-noticeable to most-noticeable
   gray300: {
-    light: 'hsl(0deg, 0%, 70%)',
-    dark: 'hsl(0deg, 0%, 30%)',
+    light: 'hsl(0, 0%, 70%)',
+    dark: 'hsl(0, 0%, 30%)',
   },
   gray500: {
-    light: 'hsl(0deg, 0%, 50%)',
-    dark: 'hsl(0deg, 0%, 50%)',
+    light: 'hsl(0, 0%, 50%)',
+    dark: 'hsl(0, 0%, 50%)',
   },
   gray700: {
-    light: 'hsl(0deg, 0%, 30%)',
-    dark: 'hsl(0deg, 0%, 70%)',
+    light: 'hsl(0, 0%, 30%)',
+    dark: 'hsl(0, 0%, 70%)',
   },
 };
 
