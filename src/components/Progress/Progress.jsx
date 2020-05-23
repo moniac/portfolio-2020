@@ -2,6 +2,14 @@ import React, { useEffect, useRef } from 'react';
 import containerStyles from './Progress.module.css';
 
 const Progress = props => {
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.document) {
+      console.log(
+        `bailing out of the useeffect. Going to continue to render??`
+      );
+      return;
+    }
+  }, []);
   const progressBar = useRef(null);
 
   var h = document?.documentElement,
