@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    scroll-behaviour: smooth;
+    scroll-behavior: smooth;
   }
   
   body {
