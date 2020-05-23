@@ -101,6 +101,7 @@ const AnimatedDarkModeToggler = props => {
             light: { r: '58px', rotate: 180 },
           }}
           animate={colorMode === 'dark' ? 'light' : 'dark'}
+          initial={'light'}
         />
         <Circle
           cx="250"
