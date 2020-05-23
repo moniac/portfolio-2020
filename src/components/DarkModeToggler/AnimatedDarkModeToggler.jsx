@@ -42,10 +42,10 @@ const AnimatedDarkModeToggler = props => {
         width="50px"
         height="50px"
         viewBox="0 0 400 400"
-        whileHover={{
-          scale: 1.2,
-          transition: { duration: 1 },
-        }}
+        // whileHover={{
+        //   scale: 1.2,
+        //   transition: { duration: 1 },
+        // }}
         xmlns="http://www.w3.org/2000/svg"
         variants={{
           dark: { rotate: 0 },
@@ -53,7 +53,7 @@ const AnimatedDarkModeToggler = props => {
         }}
         initial={false}
         animate={animateValue}
-        style={{ originX: '50%', originY: '50%' }}
+        style={{ originX: '50%', originY: '50%', translateY: '0%' }}
         transition={{ ease: 'easeOut', duration: 0.5 }}
       >
         <Circle

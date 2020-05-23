@@ -4,5 +4,20 @@
     opacity: 0;
     height: 1px;
     position: absolute;
+
+    &:focus ~ svg {
+      transform: none !important;
+      animation: hoverDark 2s ease infinite alternate;
+    }
+  }
+}
+
+@keyframes hoverDark {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(-5%);
   }
 }

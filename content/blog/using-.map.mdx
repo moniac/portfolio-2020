@@ -27,9 +27,7 @@ In the past, I would have done this:
 const arrayOfNumbers = [2, 8, 42];
 const results = [];
 
-arrayOfNumbers.forEach(number => {
-  results.push(number * 2);
-});
+arrayOfNumbers.forEach(number => results.push(number * 2));
 
 // results now equals [4, 16, 84]
 ```
@@ -45,4 +43,4 @@ const results = arrayOfNumbers.map(number => number * 2);
 // results now equals [4, 16, 84]
 ```
 
-Wow, that saved us about two lines of code.
+Okay, so what did that do except for saving us two lines of code?
