@@ -11,7 +11,7 @@ export const COLORS = {
     dark: '#121212', // navy navy blue
   },
   backgroundHighlight: {
-    light: '#fff',
+    light: 'hsl(0, 100%, 100%)',
     dark: 'hsl(210deg, 38%, 15%)',
   },
   darkModeTogle: {
