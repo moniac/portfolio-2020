@@ -3,7 +3,6 @@
   height: 80vh;
   min-height: 600px;
   overflow: hidden;
-  background-color: var(--color-background);
   position: relative;
 
   @media (min-width: 768px) {
