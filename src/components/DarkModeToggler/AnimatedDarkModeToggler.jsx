@@ -5,7 +5,15 @@ import containerStyles from './AnimatedDarkModeToggler.module.css';
 
 const Circle = props => {
   const { colorMode } = React.useContext(ThemeContext);
-  return <motion.circle id="Oval" r="17.5px" initial={false} {...props} />;
+  return (
+    <motion.circle
+      id="Oval"
+      r="17.5px"
+      initial={false}
+      fill={'var(--color-darkModeToggle)'}
+      {...props}
+    />
+  );
 };
 
 const AnimatedDarkModeToggler = props => {
