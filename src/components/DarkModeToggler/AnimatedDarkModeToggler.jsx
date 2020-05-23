@@ -23,7 +23,7 @@ const AnimatedDarkModeToggler = props => {
   if (!colorMode) {
     return null;
   }
-  console.log(colorMode);
+
   return (
     <label
       className={containerStyles.AnimatedDarkModeToggler}
