@@ -5,15 +5,7 @@ import containerStyles from './AnimatedDarkModeToggler.module.css';
 
 const Circle = props => {
   const { colorMode } = React.useContext(ThemeContext);
-  return (
-    <motion.circle
-      id="Oval"
-      fill={'var(--color-darkModeToggle)'}
-      r="17.5px"
-      initial={false}
-      {...props}
-    />
-  );
+  return <motion.circle id="Oval" r="17.5px" initial={false} {...props} />;
 };
 
 const AnimatedDarkModeToggler = props => {
@@ -50,17 +42,27 @@ const AnimatedDarkModeToggler = props => {
         initial={false}
         animate={animateValue}
         style={{ originX: '50%', originY: '50%', translateY: '0%' }}
-        transition={{ ease: 'easeOut', duration: 0.5 }}
+        transition={{
+          ease: 'easeOut',
+          duration: 0.5,
+          type: 'spring',
+          stiffness: 50,
+        }}
       >
         <Circle
           cx="200.5"
           cy="292.5px"
           variants={{
-            dark: { cy: '200.5px', scale: 0, opacity: 0 },
+            dark: { cy: '220.5px', scale: 0, opacity: 0 },
             light: { cy: '292.5px', scale: 1, opacity: 1 },
           }}
           animate={animateValue}
-          transition={{ duration: 0.2, delay: colorMode === 'light' && 0.2 }}
+          transition={{
+            duration: 0.2,
+            delay: colorMode === 'light' && 0.1,
+            type: 'spring',
+            stiffness: 100,
+          }}
         />
         <Circle
           cx="114.5px"
@@ -70,7 +72,12 @@ const AnimatedDarkModeToggler = props => {
             light: { cx: '114.5px', scale: 1, opacity: 1 },
           }}
           animate={animateValue}
-          transition={{ duration: 0.2, delay: colorMode === 'light' && 0.3 }}
+          transition={{
+            duration: 0.2,
+            delay: colorMode === 'light' && 0.1,
+            type: 'spring',
+            stiffness: 100,
+          }}
         />
         <Circle
           cx="114.5px"
@@ -80,7 +87,12 @@ const AnimatedDarkModeToggler = props => {
             light: { cx: '114.5px', scale: 1, opacity: 1 },
           }}
           animate={animateValue}
-          transition={{ duration: 0.2, delay: colorMode === 'light' && 0.4 }}
+          transition={{
+            duration: 0.2,
+            delay: colorMode === 'light' && 0.2,
+            type: 'spring',
+            stiffness: 100,
+          }}
         />
 
         <Circle
@@ -90,7 +102,12 @@ const AnimatedDarkModeToggler = props => {
             dark: { cy: '160px', scale: 0, opacity: 0 },
             light: { cy: '111.5px', scale: 1, opacity: 1 },
           }}
-          transition={{ duration: 0, delay: colorMode === 'light' && 0.5 }}
+          transition={{
+            duration: 0,
+            delay: colorMode === 'light' && 0.3,
+            type: 'spring',
+            stiffness: 100,
+          }}
           animate={animateValue}
         />
         <Circle
@@ -101,7 +118,12 @@ const AnimatedDarkModeToggler = props => {
             light: { cx: '285.5px', scale: 1, opacity: 1 },
           }}
           animate={animateValue}
-          transition={{ duration: 0.2, delay: colorMode === 'light' && 0.6 }}
+          transition={{
+            duration: 0.2,
+            delay: colorMode === 'light' && 0.4,
+            type: 'spring',
+            stiffness: 100,
+          }}
         />
         <Circle
           cx="285.5px"
@@ -111,7 +133,12 @@ const AnimatedDarkModeToggler = props => {
             light: { cx: '285.5px', scale: 1, opacity: 1 },
           }}
           animate={animateValue}
-          transition={{ duration: 0.2, delay: colorMode === 'light' && 0.7 }}
+          transition={{
+            duration: 0.2,
+            delay: colorMode === 'light' && 0.5,
+            type: 'spring',
+            stiffness: 100,
+          }}
         />
         <Circle
           cx="200"
@@ -124,23 +151,22 @@ const AnimatedDarkModeToggler = props => {
           animate={colorMode}
           initial={false}
           transition={{ duration: 0.6 }}
+          fill={'var(--color-darkModeToggle)'}
         />
         <Circle
           cx="250"
           cy="150"
-          r="90px"
+          r="0px"
           variants={{
             dark: {
               r: '90px',
-              transform: 'rotate(0deg)',
               cx: 250,
               opacity: 1,
-              transition: { duration: 0.2 },
+              transition: { duration: 0, type: 'spring', stiffness: 50 },
               fill: 'hsl(210deg, 38%, 15%)',
             },
             light: {
-              r: '58px',
-              transform: 'rotate(90deg)',
+              r: '40px',
               cx: 450,
               opacity: 0,
               transition: { duration: 0 },
