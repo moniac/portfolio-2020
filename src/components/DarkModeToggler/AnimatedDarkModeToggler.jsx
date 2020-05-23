@@ -51,6 +51,7 @@ const AnimatedDarkModeToggler = props => {
           dark: { rotate: 0 },
           light: { rotate: colorMode === 'light' && 180 },
         }}
+        initial={false},
         animate={animateValue}
         style={{ originX: '50%', originY: '50%' }}
         transition={{ ease: 'easeOut', duration: 0.5 }}
