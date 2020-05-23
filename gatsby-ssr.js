@@ -45,12 +45,8 @@ const MagicScriptTag = () => {
     .replace('🔑', COLOR_MODE_KEY)
     .replace('⚡️', INITIAL_COLOR_MODE_CSS_PROP);
 
-  console.log(COLORS);
-
   let calledFunction = `(${boundFn})()`;
   calledFunction = Terser.minify(calledFunction).code;
-
-  console.log();
 
   // eslint-disable-next-line react/no-danger
   return <script dangerouslySetInnerHTML={{ __html: calledFunction }} />;
