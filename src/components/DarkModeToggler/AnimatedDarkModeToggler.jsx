@@ -8,7 +8,7 @@ const Circle = props => {
   return (
     <motion.circle
       id="Oval"
-      fill={'var(--color-text)'}
+      fill={'var(--color-darkModeTogle)'}
       r="17.5px"
       initial={false}
       {...props}
