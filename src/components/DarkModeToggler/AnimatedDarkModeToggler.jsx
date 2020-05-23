@@ -111,6 +111,7 @@ const AnimatedDarkModeToggler = props => {
             light: { r: '58px', transform: 'rotate(90deg)', cx: 450 },
           }}
           animate={animateValue}
+          initial={false}
           fill={'hsl(210deg, 38%, 15%)'}
           fillOpacity={colorMode === 'dark' ? '1' : '0'}
         />
