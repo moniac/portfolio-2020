@@ -112,7 +112,7 @@ const AnimatedDarkModeToggler = props => {
           }}
           animate={animateValue}
           initial={false}
-          fill={'hsl(210deg, 38%, 15%)'}
+          fill={colorMode === 'dark' ? L'hsl(210deg, 38%, 15%)' : white}
           fillOpacity={colorMode === 'dark' ? '1' : '0'}
         />
       </motion.svg>
