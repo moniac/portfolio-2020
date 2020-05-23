@@ -15,7 +15,7 @@ export const COLORS = {
     dark: 'hsl(210deg, 38%, 15%)',
   },
   darkModeTogle: {
-    light: 'rgba(51, 51, 51, 0.6)',
+    light: 'rgba(51, 51, 51, 1)',
     dark: 'rgba(255, 255, 255, 1)',
   },
   codeBlock: {

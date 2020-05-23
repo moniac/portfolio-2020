@@ -110,9 +110,6 @@ export const onRenderBody = ({
     .no-js .BlogLayout > label {
       display: none;
     }
-    html {
-      scroll-behavior: smooth;
-  }
     `,
       }}
     />,

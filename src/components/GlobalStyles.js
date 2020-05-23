@@ -6,6 +6,10 @@ const GlobalStyles = createGlobalStyle`
     font-family: Futura, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
+
+  html {
+    scroll-behaviour: smooth;
+  }
   
   body {
     background: var(--color-background);

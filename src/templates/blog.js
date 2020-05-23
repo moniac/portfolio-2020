@@ -59,14 +59,14 @@ export default function PageTemplate({ data: { mdx } }) {
     <Layout showProgressBar={true}>
       <BlogContentLayout>
         <MDXProvider components={allComponents}>
-          <div className="blog-content flex-1 ">
+          <div className="blog-content lg:flex-1">
             <GradientHeading>{mdx.frontmatter.title}</GradientHeading>
             <Img fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid} />
             <MDXRenderer headings={mdx.headings}>{mdx.body}</MDXRenderer>
           </div>
         </MDXProvider>
         {Boolean(mdx.headings.length) && (
-          <aside className="blog-sidebar hidden lg:block overflow-auto pl-40 sticky">
+          <aside className="blog-sidebar hidden lg:block overflow-auto pl-40 sticky lg:flex-1">
             <ul>
               <li className="mb-4 text-2xl">
                 <b>Table of Contents</b>
