@@ -31,7 +31,7 @@ export const COLORS = {
     dark: 'hsl(190, 100%, 40%)', // Cyan
   },
   radialGradient: {
-    dark: 'linear-gradient(180, #5b5cf1, #21b3ff)',
+    dark: 'linear-gradient(180deg, #5b5cf1, #21b3ff)',
     light: 'linear-gradient(to bottom, #f15b74, #ff6021)',
   },
   radialWaves: {
