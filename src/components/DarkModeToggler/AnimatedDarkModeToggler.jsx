@@ -108,13 +108,25 @@ const AnimatedDarkModeToggler = props => {
           cy="150"
           r="90px"
           variants={{
-            dark: { r: '90px', transform: 'rotate(0deg)', cx: 250 },
-            light: { r: '58px', transform: 'rotate(90deg)', cx: 450 },
+            dark: {
+              r: '90px',
+              transform: 'rotate(0deg)',
+              cx: 250,
+              opacity: 1,
+              fill: 'hsl(210deg, 38%, 15%)',
+              transition: { duration: 0.1 },
+            },
+            light: {
+              r: '58px',
+              transform: 'rotate(90deg)',
+              cx: 450,
+              opacity: 0,
+              fill: 'white',
+              transition: { duration: 0.1 },
+            },
           }}
           animate={animateValue}
           initial={false}
-          fill={colorMode === 'dark' ? 'hsl(210deg, 38%, 15%)' : 'white'}
-          fillOpacity={colorMode === 'dark' ? '1' : '0'}
         />
       </motion.svg>
     </label>
