@@ -97,8 +97,8 @@ const AnimatedDarkModeToggler = props => {
           cy="200"
           r="58px"
           variants={{
-            dark: { r: '90px', rotate: 0 },
-            light: { r: '58px', rotate: 180 },
+            dark: { r: '90px' },
+            light: { r: '58px' },
           }}
           animate={colorMode}
           initial={false}
