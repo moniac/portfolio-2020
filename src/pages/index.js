@@ -1,14 +1,14 @@
-import React from "react"
+import React from 'react';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Header from "../components/Header/Header"
-import GradientHeading from "../components/GradientHeading/GradientHeading"
-import PortfolioCard from "../components/PortfolioCard/PortfolioCard"
-import { graphql } from "gatsby"
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import Header from '../components/Header/Header';
+import GradientHeading from '../components/GradientHeading/GradientHeading';
+import PortfolioCard from '../components/PortfolioCard/PortfolioCard';
+import { graphql } from 'gatsby';
 
 const IndexPage = props => {
-  const allWork = props.data.allWork.edges
+  const allWork = props.data.allWork.edges;
 
   return (
     <Layout>
@@ -27,8 +27,8 @@ const IndexPage = props => {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
 export const pageQuery = graphql`
   query workIndex {
@@ -51,9 +51,9 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default IndexPage
+export default IndexPage;
 
 function renderWorkPosts(allWork) {
   return allWork.map((input, i, allWork, { node: work } = input) => (
@@ -61,5 +61,5 @@ function renderWorkPosts(allWork) {
       key={`${work.frontmatter.title} - ${i}`}
       {...work.frontmatter}
     />
-  ))
+  ));
 }
