@@ -1,0 +1,8 @@
+.BlogPostCard {
+  color: var(--color-text);
+}
+
+.BlogPostBody {
+  background-color: var(--color-backgroundHighlight);
+  transition: color 225ms ease-in-out, background-color 225ms ease-in-out;
+}

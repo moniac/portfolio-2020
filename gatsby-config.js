@@ -75,7 +75,6 @@ module.exports = {
     },
     `gatsby-plugin-optimize-svgs`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify`,
     `gatsby-plugin-advanced-sitemap`,
     {
       resolve: 'gatsby-plugin-robots-txt',

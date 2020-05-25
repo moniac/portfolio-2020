@@ -5,7 +5,7 @@ import BlogLayout from '../Layouts/BlogLayout';
 import GradientHeading from '../components/GradientHeading/GradientHeading';
 import { motion, AnimatePresence } from 'framer-motion';
 import ZeroState from '../images/blog_empty_state.inline.svg';
-import BlogPostCard from '../components/BlogPostCard';
+import BlogPostCard from '../components/BlogPostCard/BlogPostCard';
 
 const variants = {
   visible: i => ({
