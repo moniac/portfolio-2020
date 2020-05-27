@@ -111,6 +111,10 @@
   }
 
   p {
-    font-size: 19px;
+    font-size: 16px;
+
+    @media (min-width: 768px) {
+      font-size: 19px;
+    }
   }
 }
