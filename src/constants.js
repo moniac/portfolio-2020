@@ -8,7 +8,7 @@ export const COLORS = {
   },
   background: {
     light: '#ffffff', // white
-    dark: '#121212', // navy navy blue
+    dark: '#000000', // navy navy blue
   },
   backgroundHighlight: {
     light: '#ffffff',
