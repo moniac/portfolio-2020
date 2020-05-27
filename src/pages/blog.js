@@ -14,12 +14,10 @@ const variants = {
     transition: {
       delay: i * 0.1,
     },
-    filter: 'grayscale(0)',
   }),
   hidden: {
     opacity: 0,
     transform: 'rotate(0) scale(0.6)',
-    filter: 'grayscale(1)',
   },
 };
 
@@ -128,7 +126,7 @@ function renderBlogPosts(allPosts) {
             animate="visible"
             variants={variants}
             positionTransition={true}
-            exit={{ opacity: 0, filter: 'grayscale(1)' }}
+            exit={{ opacity: 0 }}
             className="w-full"
           >
             <Link

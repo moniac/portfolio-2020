@@ -104,7 +104,6 @@ export const onRenderBody = ({
         __html: `.no-js .BlogLayout * {
       opacity: 1 !important;
       transform: none !important;
-      filter: grayscale(0) !important;
     }
     
     .no-js .BlogLayout > label {

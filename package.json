@@ -36,7 +36,8 @@
     "react-helmet": "^6.0.0",
     "react-live": "^2.2.2",
     "styled-components": "^5.1.0",
-    "terser": "^4.6.13"
+    "terser": "^4.6.13",
+    "typeface-open-sans": "0.0.75"
   },
   "devDependencies": {
     "gatsby-plugin-remove-trailing-slashes": "^2.3.0",
