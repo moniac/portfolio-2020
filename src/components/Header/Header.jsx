@@ -13,7 +13,7 @@ const Header = () => {
         />
         <aside className="ml-4 mb-2">
           <h1 className="text-base whitespace-no-wrap">Mohammed Mulazada</h1>
-          <h2 className="text-base whitespace-no-wrap font-hairline">
+          <h2 className="text-base whitespace-no-wrap font-normal">
             Front-end Developer
           </h2>
         </aside>
@@ -21,7 +21,7 @@ const Header = () => {
 
       <div className="mt-8">
         <h2>Welcome</h2>
-        <p className="max-w-sm font-hairline">
+        <p className="max-w-sm font-normal">
           This is the portfolio of Mohammed Mulazada, a Web Developer based in
           Amsterdam.
         </p>

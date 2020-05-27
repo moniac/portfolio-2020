@@ -101,7 +101,8 @@ export const onRenderBody = ({
     <style
       key="no-js-css"
       dangerouslySetInnerHTML={{
-        __html: `.no-js .BlogLayout * {
+        __html: `
+        .no-js .BlogLayout * {
       opacity: 1 !important;
       transform: none !important;
     }

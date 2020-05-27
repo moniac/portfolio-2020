@@ -3,10 +3,11 @@
 @import 'tailwindcss/components';
 
 @import 'tailwindcss/utilities';
-html,
-body {
-  font-family: Open Sans;
+
+:root {
+  --font-family: 'Open Sans', Futura, -apple-system, sans-serif;
 }
+
 a {
   cursor: pointer;
 }
