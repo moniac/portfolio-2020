@@ -5,10 +5,6 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html, body {
-    font-family: var(--font-family);
-  }
-
   html {
     scroll-behavior: smooth;
   }

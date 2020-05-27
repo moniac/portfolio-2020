@@ -1,12 +1,18 @@
+:root {
+  --font-family: 'Open Sans', Futura, -apple-system, sans-serif;
+}
+
+html,
+body {
+  font-family: var(--font-family);
+  font-weight: 400;
+}
+
 @import 'tailwindcss/base';
 
 @import 'tailwindcss/components';
 
 @import 'tailwindcss/utilities';
-
-:root {
-  --font-family: 'Open Sans', Futura, -apple-system, sans-serif;
-}
 
 a {
   cursor: pointer;

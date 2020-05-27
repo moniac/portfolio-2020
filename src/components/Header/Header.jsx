@@ -19,7 +19,7 @@ const Header = () => {
         </aside>
       </Link>
 
-      <div className="mt-8">
+      <div className="-ml-2 mt-8">
         <h2>Welcome</h2>
         <p className="max-w-sm font-normal">
           This is the portfolio of Mohammed Mulazada, a Web Developer based in

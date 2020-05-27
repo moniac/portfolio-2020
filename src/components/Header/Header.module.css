@@ -15,3 +15,7 @@
   margin-bottom: 0.3rem;
   color: var(--color-text);
 }
+
+.Logo {
+  margin-left: -14px;
+}
