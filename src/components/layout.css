@@ -5,9 +5,8 @@
 @import 'tailwindcss/utilities';
 
 a {
-  text-decoration: none;
-  color: inherit;
   cursor: pointer;
+  text-decoration: underline;
 }
 button {
   background-color: transparent;
@@ -202,6 +201,7 @@ li > .active {
 
 code {
   background: var(--color-codeBlock);
+  transition: background-color 300ms ease-out;
   border-radius: 0.25rem;
   padding: 0 0.4rem;
 }
@@ -271,4 +271,10 @@ code {
 
 body {
   scroll-margin-top: 4rem;
+}
+
+blockquote {
+  background-color: var(--color-codeBlock);
+  padding: 2rem;
+  border-left: 8px solid #21b3ff;
 }

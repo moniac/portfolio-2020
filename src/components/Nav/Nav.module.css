@@ -2,10 +2,13 @@
   display: flex;
   justify-content: center;
   background-color: var(--color-backgroundHighlight);
+  background-color: var(--color-background);
   position: sticky;
   top: 0;
   z-index: 5;
   flex-direction: column;
+  transition: color 300ms ease-out, fill 300ms ease-out, stroke 300ms ease-out,
+    background-color 300ms ease-out;
   > ul {
     width: 686px;
     display: flex;

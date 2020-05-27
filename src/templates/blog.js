@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 import GradientHeading from '../components/GradientHeading/GradientHeading';
 import Layout from '../components/layout';
 import Code from '../components/Code';
-import theme from 'prism-react-renderer/themes/nightOwl';
+import theme from 'prism-react-renderer/themes/synthwave84';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import BlogContentLayout from '../Layouts/BlogContentLayout';
 import Slugger from 'github-slugger';
@@ -31,7 +31,7 @@ const shortcodes = { Link }; // Provide common components here
 const replacedComponents = {
   pre: preProps => {
     if (preProps.children.props['react-live']) {
-      return <LiveCode {...preProps} className="dasdas" />;
+      return <LiveCode {...preProps} />;
     }
     const props = preToCodeBlock(preProps);
     // if there's a codeString and some props, we passed the test

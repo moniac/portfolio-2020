@@ -169,15 +169,20 @@ const AnimatedDarkModeToggler = props => {
               r: '90px',
               cx: 250,
               opacity: 1,
-              transition: { duration: 0, type: 'spring', stiffness: 50 },
-              fill: '#182635',
+              transition: {
+                duration: 0.2,
+                type: 'spring',
+                stiffness: 50,
+                delay: 0.2,
+              },
+              fill: '#121212',
             },
             light: {
               r: '40px',
               cx: 450,
               opacity: 0,
-              transition: { duration: 0 },
-              fill: '#182635',
+              transition: { duration: 0.1 },
+              fill: '#121212',
             },
           }}
           animate={animateValue}
