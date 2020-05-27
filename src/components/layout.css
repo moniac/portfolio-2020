@@ -121,6 +121,7 @@ code {
   transition: background-color 300ms ease-out;
   border-radius: 0.25rem;
   padding: 0 0.4rem;
+  font-family: var(--font-family);
 }
 
 ::-webkit-scrollbar {

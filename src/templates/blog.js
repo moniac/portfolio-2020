@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 import GradientHeading from '../components/GradientHeading/GradientHeading';
 import Layout from '../components/layout';
 import Code from '../components/Code';
-import theme from 'prism-react-renderer/themes/synthwave84';
+import theme from 'prism-react-renderer/themes/nightOwl';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import BlogContentLayout from '../Layouts/BlogContentLayout';
 import Slugger from 'github-slugger';
