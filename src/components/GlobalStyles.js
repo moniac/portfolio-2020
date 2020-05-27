@@ -7,7 +7,6 @@ const GlobalStyles = createGlobalStyle`
 
   html, body {
     font-family: var(--font-family);
-    font-weight: 600;
   }
 
   html {
