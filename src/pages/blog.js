@@ -23,38 +23,26 @@ const variants = {
 
 const BlogIndex = ({ data }) => {
   const { edges: posts } = data.allMdx;
-  const [allPosts, setAllPosts] = useState(() => posts);
+  const [allPosts, setAllPosts] = useState(posts);
+  const [search, setSearch] = useState('');
 
-  const handleChange = e => {
-    const value = e.currentTarget.value;
+  useEffect(() => {
+    if (search.length > 0) {
+      const formattedSearch = search.toLowerCase().trim();
 
-    if (!value) {
-      setAllPosts(posts);
+      const filteredPosts = posts.filter(post =>
+        post.node.frontmatter.title
+          .toLowerCase()
+          .trim()
+          .includes(formattedSearch)
+      );
+
+      setAllPosts(filteredPosts);
       return;
     }
 
-    const formattedSearch = value.toLowerCase().trim();
-
-    const filteredPosts = posts.filter(post =>
-      post.node.frontmatter.title.toLowerCase().trim().includes(formattedSearch)
-    );
-
-    if (filteredPosts.length === 0) {
-      setAllPosts([]);
-      return;
-    }
-
-    const isSame = allPosts.every(
-      (o, i) => o.node.id === filteredPosts[i].node.id
-    );
-
-    if (isSame) {
-      return;
-    }
-
-    setAllPosts(filteredPosts);
-    return;
-  };
+    setAllPosts(posts);
+  }, [search, posts]);
 
   return (
     <Layout>
@@ -71,7 +59,8 @@ const BlogIndex = ({ data }) => {
               className="shadow appearance-none border rounded w-full py-2 px-3 mb-8
     text-gray-700 leading-tight focus:outline-none focus:shadow-outline max-w-sm flex"
               type="text"
-              onChange={handleChange}
+              value={search}
+              onChange={e => setSearch(e.target.value)}
             />
           </label>
         </form>
