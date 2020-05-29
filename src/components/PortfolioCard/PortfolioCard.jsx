@@ -1,6 +1,5 @@
 import React from 'react';
 import containerStyles from './PortfolioCard.module.css';
-import { Link } from 'gatsby';
 
 const PortfolioCard = props => {
   const { title, togetherWith, togetherWithUrl, excerpt, workUrl } = props;
