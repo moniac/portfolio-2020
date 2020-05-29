@@ -37,7 +37,7 @@ export const BlogPostCardList = props => {
             <Link
               key={post.fields.slug}
               to={post.fields.slug}
-              aria-label={`Go to blog post about ${post.frontmatter.title}`}
+              aria-label={`Go to the blog post about ${post.frontmatter.title}`}
             >
               <BlogPostCard
                 title={post.frontmatter.title}
