@@ -1,29 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import BlogLayout from '../Layouts/BlogLayout';
 import GradientHeading from '../components/GradientHeading/GradientHeading';
-import { motion, AnimatePresence } from 'framer-motion';
-import ZeroState from '../images/blog_empty_state.inline.svg';
-import BlogPostCard from '../components/BlogPost/BlogPostCard';
 
-const variants = {
-  visible: i => ({
-    opacity: 1,
-    transform: 'rotate(0deg) scale(1)',
-    transition: {
-      delay: i * 0.1,
-    },
-  }),
-  hidden: {
-    opacity: 0,
-    transform: 'rotate(0) scale(0.6)',
-  },
-};
+import ZeroState from '../images/blog_empty_state.inline.svg';
+
+import { MemoizedBlogPostCardList } from '../components/BlogPost/BlogPostCardList';
 
 const BlogIndex = ({ data }) => {
   const { edges: posts } = data.allMdx;
-  const [allPosts, setAllPosts] = useState(posts);
+  const [allPosts, setAllPosts] = useState(() => posts);
   const [search, setSearch] = useState('');
 
   useEffect(() => {
@@ -42,7 +29,7 @@ const BlogIndex = ({ data }) => {
     }
 
     setAllPosts(posts);
-  }, [search, posts]);
+  }, [search]);
 
   return (
     <Layout>
@@ -115,34 +102,5 @@ function renderZeroState() {
 }
 
 function renderBlogPosts(allPosts) {
-  return (
-    <ul className="grid md:grid-flow-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4">
-      <AnimatePresence>
-        {allPosts.map(({ node: post }, i) => (
-          <motion.li
-            key={post.id}
-            custom={i}
-            initial="hidden"
-            animate="visible"
-            variants={variants}
-            positionTransition={true}
-            exit={{ opacity: 0 }}
-            className="w-full"
-          >
-            <Link
-              key={post.fields.slug}
-              to={post.fields.slug}
-              aria-label={`Go to blog post about ${post.frontmatter.title}`}
-            >
-              <BlogPostCard
-                title={post.frontmatter.title}
-                excerpt={post.excerpt}
-                img={post.frontmatter.featuredImage.childImageSharp.fluid}
-              />
-            </Link>
-          </motion.li>
-        ))}
-      </AnimatePresence>
-    </ul>
-  );
+  return <MemoizedBlogPostCardList posts={allPosts} />;
 }
