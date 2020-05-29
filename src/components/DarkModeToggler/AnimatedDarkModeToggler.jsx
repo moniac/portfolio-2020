@@ -4,7 +4,6 @@ import { ThemeContext } from '../ThemeContext';
 import containerStyles from './AnimatedDarkModeToggler.module.css';
 
 const Circle = props => {
-  const { colorMode } = React.useContext(ThemeContext);
   return (
     <motion.circle
       id="Oval"
