@@ -6,7 +6,11 @@ import MoniacLogo from '../../images/mo_logo.inline.svg';
 const Header = () => {
   return (
     <header className={`${containerStyles.Header} p-10`}>
-      <Link className={`${containerStyles.Logo} flex items-start`} to="/">
+      <Link
+        className={`${containerStyles.Logo} flex items-start`}
+        to="/"
+        aria-label="Go back to the homepage"
+      >
         <p className="hidden">Go back to the homepage</p>
         <MoniacLogo
           className={containerStyles.MoniacLogo}
