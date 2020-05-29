@@ -28,7 +28,7 @@ export const BlogSearchContainer = props => {
 
   return (
     <>
-      <form role="search">
+      <form role="search" onSubmit={event => event.preventDefault()}>
         <label>
           Search
           <input
