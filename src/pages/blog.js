@@ -5,7 +5,7 @@ import BlogLayout from '../Layouts/BlogLayout';
 import GradientHeading from '../components/GradientHeading/GradientHeading';
 import { motion, AnimatePresence } from 'framer-motion';
 import ZeroState from '../images/blog_empty_state.inline.svg';
-import BlogPostCard from '../components/BlogPostCard/BlogPostCard';
+import BlogPostCard from '../components/BlogPost/BlogPostCard';
 
 const variants = {
   visible: i => ({
@@ -23,26 +23,38 @@ const variants = {
 
 const BlogIndex = ({ data }) => {
   const { edges: posts } = data.allMdx;
-  const [allPosts, setAllPosts] = useState(posts);
-  const [search, setSearch] = useState('');
+  const [allPosts, setAllPosts] = useState(() => posts);
 
-  useEffect(() => {
-    if (search.length > 0) {
-      const formattedSearch = search.toLowerCase().trim();
+  const handleChange = e => {
+    const value = e.currentTarget.value;
 
-      const filteredPosts = posts.filter(post =>
-        post.node.frontmatter.title
-          .toLowerCase()
-          .trim()
-          .includes(formattedSearch)
-      );
-
-      setAllPosts(filteredPosts);
+    if (!value) {
+      setAllPosts(posts);
       return;
     }
 
-    setAllPosts(posts);
-  }, [search, posts]);
+    const formattedSearch = value.toLowerCase().trim();
+
+    const filteredPosts = posts.filter(post =>
+      post.node.frontmatter.title.toLowerCase().trim().includes(formattedSearch)
+    );
+
+    if (filteredPosts.length === 0) {
+      setAllPosts([]);
+      return;
+    }
+
+    const isSame = allPosts.every(
+      (o, i) => o.node.id === filteredPosts[i].node.id
+    );
+
+    if (isSame) {
+      return;
+    }
+
+    setAllPosts(filteredPosts);
+    return;
+  };
 
   return (
     <Layout>
@@ -59,8 +71,7 @@ const BlogIndex = ({ data }) => {
               className="shadow appearance-none border rounded w-full py-2 px-3 mb-8
     text-gray-700 leading-tight focus:outline-none focus:shadow-outline max-w-sm flex"
               type="text"
-              value={search}
-              onChange={e => setSearch(e.target.value)}
+              onChange={handleChange}
             />
           </label>
         </form>
