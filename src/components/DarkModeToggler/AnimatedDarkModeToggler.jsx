@@ -6,7 +6,6 @@ import containerStyles from './AnimatedDarkModeToggler.module.css';
 const Circle = props => {
   return (
     <motion.circle
-      id="Oval"
       r="17.5px"
       initial={false}
       fill={'var(--color-darkModeToggle)'}

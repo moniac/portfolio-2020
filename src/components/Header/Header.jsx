@@ -7,6 +7,7 @@ const Header = () => {
   return (
     <header className={`${containerStyles.Header} p-10`}>
       <Link className={`${containerStyles.Logo} flex items-start`} to="/">
+        <p className="hidden">Go back to the homepage</p>
         <MoniacLogo
           className={containerStyles.MoniacLogo}
           alt="The personal logo of Mohammed Mulazada"
