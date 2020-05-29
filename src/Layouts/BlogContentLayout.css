@@ -108,6 +108,31 @@
         border-radius: 5px;
       }
     }
+
+    ol li {
+      counter-increment: muffins;
+    }
+    ol li:before {
+      content: counter(muffins) '. ';
+    }
+    ol {
+      list-style: none;
+      counter-reset: muffins;
+    }
+
+    ol {
+      counter-reset: cupcake;
+      padding-left: 32px;
+    }
+    ol li {
+      counter-increment: cupcake;
+    }
+    ol li:before {
+      content: counters(cupcake, '.') ' ';
+      /* Whatever custom styles you want here */
+      color: var(--color-text);
+      font-weight: bold;
+    }
   }
 
   p {
