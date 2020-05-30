@@ -8,6 +8,11 @@ body {
   font-weight: 400;
 }
 
+.transition {
+  @media (prefers-reduced-motion: no-preference) {
+    transition: color 300ms ease-out, fill 300ms ease-out, stroke 300ms ease-out, background-color 300ms ease-out;
+}
+
 @import 'tailwindcss/base';
 
 @import 'tailwindcss/components';
