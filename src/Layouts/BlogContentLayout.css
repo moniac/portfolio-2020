@@ -12,7 +12,7 @@
 
     &::-webkit-scrollbar-thumb {
       border-radius: 4px;
-      background-color: var(--color-radialCoverBackground);
+      background-color: var(--color-progress);
     }
 
     ul > * + * {
