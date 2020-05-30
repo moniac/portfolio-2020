@@ -1,0 +1,7 @@
+.ThreeCube {
+  z-index: 1;
+
+  canvas {
+    outline: none;
+  }
+}

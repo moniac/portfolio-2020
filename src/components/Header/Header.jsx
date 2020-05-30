@@ -2,6 +2,7 @@ import React from 'react';
 import containerStyles from './Header.module.css';
 import { Link } from 'gatsby';
 import MoniacLogo from '../../images/mo_logo.inline.svg';
+import ThreeCube from '../3d/experimentation/cube/ThreeCube';
 
 const Header = () => {
   return (
@@ -32,6 +33,17 @@ const Header = () => {
         </p>
       </div>
 
+      <div
+        style={{
+          width: '200px',
+          height: '200px',
+          position: 'absolute',
+          top: 0,
+          right: 0,
+        }}
+      >
+        <ThreeCube />
+      </div>
       <div className="ocean">
         <div className="wave"></div>
         <div className="wave"></div>
