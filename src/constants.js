@@ -14,6 +14,10 @@ export const COLORS = {
     light: '#ffffff',
     dark: '#182635',
   },
+  progress: {
+    light: '#f15b74',
+    dark: '#21b3ff',
+  },
   darkModeToggle: {
     light: '#333333',
     dark: '#ffffff',
