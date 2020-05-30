@@ -75,7 +75,7 @@ export default function PageTemplate({ data: { mdx } }) {
           </div>
         </MDXProvider>
         {Boolean(mdx.headings.length) && (
-          <aside className="blog-sidebar hidden lg:block overflow-auto pl-40 sticky lg:flex-1">
+          <aside className="blog-sidebar hidden lg:block ml-40 sticky lg:flex-1">
             <ul>
               <li className="mb-4 text-2xl">
                 <b>Table of Contents</b>

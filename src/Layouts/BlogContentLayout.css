@@ -3,6 +3,21 @@
   .blog-sidebar {
     margin-top: 18.2rem;
     font-size: 15px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      /* display: none; */
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: var(--color-radialCoverBackground);
+    }
+
+    ul > * + * {
+      margin-top: 0.4rem;
+    }
 
     a {
       opacity: 0.8;
@@ -10,11 +25,20 @@
   }
   .blog-content {
     width: 100%;
-
     max-width: max(686px, 80%);
 
     > * + * {
       margin-bottom: 1.55rem;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 3.1rem;
+      margin-bottom: 1.55rem;
+      line-height: 1.1;
     }
 
     a {

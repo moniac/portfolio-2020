@@ -130,10 +130,6 @@ code {
   font-family: var(--font-family);
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 .ocean {
   height: 5%;
   width: 101vw;
