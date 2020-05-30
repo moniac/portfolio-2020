@@ -1,13 +1,18 @@
 .BlogContentLayout {
-  max-width: 1100px;
+  max-width: min(1100px, 100%);
   .blog-sidebar {
     margin-top: 18.2rem;
+    font-size: 15px;
+
+    a {
+      opacity: 0.8;
+    }
   }
   .blog-content {
     width: 100%;
-    @media (min-width: 770px) {
-      max-width: 686px;
-    }
+
+    max-width: max(686px, 80%);
+
     > * + * {
       margin-bottom: 1.55rem;
     }
@@ -140,7 +145,7 @@
     font-weight: 500;
 
     @media (min-width: 768px) {
-      font-size: 18px;
+      font-size: 19px;
     }
   }
 }

@@ -4,12 +4,14 @@ import Layout from '../components/layout';
 import BlogLayout from '../Layouts/BlogLayout';
 import GradientHeading from '../components/GradientHeading/GradientHeading';
 import { BlogSearchContainer } from '../components/BlogPost/BlogSearchContainer';
+import SEO from '../components/seo';
 
 const BlogIndex = ({ data }) => {
   const { edges: posts } = data.allMdx;
 
   return (
     <Layout>
+      <SEO title="Blog posts" />
       <BlogLayout>
         <GradientHeading>
           Recent <br /> posts

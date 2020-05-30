@@ -11,6 +11,7 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import BlogContentLayout from '../Layouts/BlogContentLayout';
 import Slugger from 'github-slugger';
 import Img from 'gatsby-image';
+import { Helmet } from 'react-helmet';
 
 const slugger = new Slugger();
 
@@ -57,6 +58,14 @@ export default function PageTemplate({ data: { mdx } }) {
 
   return (
     <Layout showProgressBar={true}>
+      <Helmet>
+        <title>{mdx.frontmatter.title}</title>
+        <meta
+          name="description"
+          content={`A blog post about ${mdx.frontmatter.title}`}
+        />
+        <meta name="author" content="Mohammed Mulazada" />
+      </Helmet>
       <BlogContentLayout>
         <MDXProvider components={allComponents}>
           <div className="blog-content lg:flex-1">
