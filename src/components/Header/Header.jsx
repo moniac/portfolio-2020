@@ -3,10 +3,11 @@ import containerStyles from './Header.module.css';
 import { Link } from 'gatsby';
 import MoniacLogo from '../../images/mo_logo.inline.svg';
 import ThreeCube from '../3d/experimentation/cube/ThreeCube';
+import EarthGlobe from '../3d/experimentation/earth/EarthGlobe';
 
 const Header = () => {
   return (
-    <header className={`${containerStyles.Header} p-10`}>
+    <header className={`${containerStyles.Header} p-10 relative`}>
       <Link
         className={`${containerStyles.Logo} flex items-start`}
         to="/"
@@ -35,14 +36,16 @@ const Header = () => {
 
       <div
         style={{
-          width: '200px',
-          height: '200px',
+          width: '100%',
+          height: '100%',
           position: 'absolute',
           top: 0,
-          right: 0,
+          zIndex: 1,
+          // right: 0,
         }}
       >
         <ThreeCube />
+        {/* <EarthGlobe /> */}
       </div>
       <div className="ocean">
         <div className="wave"></div>
