@@ -79,7 +79,7 @@ export default () => {
   return (
     <Canvas
       className={containerStyles.ThreeCube}
-      camera={{ position: [0, 30, 50] }}
+      camera={{ position: [0, 0, 8] }}
       onCreated={({ gl }) => {
         gl.shadowMap.enabled = true;
         gl.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -91,7 +91,7 @@ export default () => {
       {/* <Plane /> */}
       {/* <ThreeBox position={[0, 0, 0]} /> */}
 
-      {/* <Controls /> */}
+      <Controls />
 
       <Earth />
     </Canvas>

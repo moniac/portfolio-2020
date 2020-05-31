@@ -4,20 +4,14 @@ import { Canvas, useFrame } from 'react-three-fiber';
 
 export const Earth = () => {
   const [model, setModel] = useState();
-  const testr = useRef();
-  useEffect(() => {
-    new GLTFLoader().load('3dobjects/floatingisland/scene.gltf', setModel);
-  });
 
-  useFrame(() => {
-    if (model) {
-      testr.current.rotation.y -= 0.001;
-    }
+  useEffect(() => {
+    new GLTFLoader().load('3dobjects/rocketplanet/scene.gltf', setModel);
   });
 
   return model && model.scene ? (
-    <group position={[30, 5, 0]} rotation={[0, 0, 0]}>
-      <mesh ref={testr}>
+    <group position={[0, -4, 0]} rotation={[0.1, 0, 0]}>
+      <mesh>
         <primitive object={model.scene} />
       </mesh>
     </group>
