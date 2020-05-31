@@ -3,7 +3,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Canvas, useFrame, extend, useThree } from 'react-three-fiber';
 import { useSpring, a } from 'react-spring/three';
 import containerStyles from './ThreeCube.module.css';
-import * as THREE from 'THREE';
+import * as THREE from 'three';
 
 extend({ OrbitControls });
 
