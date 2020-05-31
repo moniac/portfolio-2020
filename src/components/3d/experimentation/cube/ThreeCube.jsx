@@ -38,7 +38,7 @@ const ThreeBox = props => {
   const [active, setActive] = useState(false);
   const springProps = useSpring({
     scale: active ? [1.5, 1.5, 1.5] : [1, 1, 1],
-    color: hovered ? '#d63447' : '#f6eedf',
+    color: hovered ? 'red' : 'blue',
   });
 
   const boxRef = useRef();
