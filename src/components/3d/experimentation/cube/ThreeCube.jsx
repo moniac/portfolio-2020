@@ -27,24 +27,21 @@ const Controls = () => {
 };
 
 const Plane = () => (
-  <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]} receiveShadow>
+  <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
     <planeBufferGeometry attach="geometry" args={[100, 100]} />
-    <meshPhysicalMaterial attach="material" color="gray" />
+    <meshPhysicalMaterial attach="material" color="white" />
   </mesh>
 );
 
 const ThreeBox = props => {
-  const [active, setActive] = useState(false);
   const [hovered, setHovered] = useState(false);
-
+  const [active, setActive] = useState(false);
   const springProps = useSpring({
-    scale: active ? [2.5, 2.5, 2.5] : [2, 2, 2],
-    color: hovered ? 'hotpink' : 'gray',
+    scale: active ? [1.5, 1.5, 1.5] : [1, 1, 1],
+    color: hovered ? '#d63447' : '#f6eedf',
   });
 
   const boxRef = useRef();
-
-  console.log(springProps.color);
 
   //   useFrame(() => {
   //     boxRef.current.rotation.y += 0.01;
@@ -53,16 +50,20 @@ const ThreeBox = props => {
   return (
     <a.mesh
       ref={boxRef}
-      scale={springProps.scale}
-      onClick={() => setActive(prevValue => !prevValue)}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
+      onClick={() => setActive(!active)}
+      scale={springProps.scale}
       castShadow
-      visible
       {...props}
     >
-      <ambientLight />
-      <spotLight position={[0, 5, 10]} penumbra={1} castShadow />
+      <ambientLight intensity={0.5} />
+      <spotLight
+        intensity={0.6}
+        position={[0, 10, 15]}
+        penumbra={1}
+        castShadow
+      />
       <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
       <a.meshPhysicalMaterial attach="material" color={springProps.color} />
     </a.mesh>
@@ -73,7 +74,7 @@ export default () => {
   return (
     <Canvas
       className={containerStyles.ThreeCube}
-      camera={{ position: [0, 0, 5] }}
+      camera={{ position: [0, 0, 2] }}
       onCreated={({ gl }) => {
         gl.shadowMap.enabled = true;
         gl.shadowMap.type = THREE.PCFSoftShadowMap;
