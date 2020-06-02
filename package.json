@@ -21,7 +21,6 @@
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-robots-txt": "^1.5.1",
     "gatsby-plugin-sharp": "^2.6.9",
-    "gatsby-plugin-styled-components": "^3.3.2",
     "gatsby-plugin-subfont": "^2.2.3",
     "gatsby-remark-autolink-headers": "^2.3.3",
     "gatsby-remark-images": "^3.3.8",
@@ -37,7 +36,6 @@
     "react-live": "^2.2.2",
     "react-spring": "^8.0.27",
     "react-three-fiber": "^4.2.8",
-    "styled-components": "^5.1.1",
     "terser": "^4.7.0",
     "three": "^0.117.1",
     "typeface-open-sans": "0.0.75"
