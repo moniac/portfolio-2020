@@ -7,6 +7,13 @@ module.exports = {
     author: `@thisismoniac`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+        trackingId: 'UA-90488054-3',
+      },
+    },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
@@ -76,13 +83,6 @@ module.exports = {
     },
     `gatsby-plugin-optimize-svgs`,
     `gatsby-plugin-subfont`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
-        trackingId: 'UA-90488054-3',
-      },
-    },
     `gatsby-plugin-offline`,
     `gatsby-plugin-advanced-sitemap`,
     {
