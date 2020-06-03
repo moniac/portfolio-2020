@@ -84,7 +84,7 @@ module.exports = {
     `gatsby-plugin-optimize-svgs`,
     `gatsby-plugin-subfont`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-advanced-sitemap`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
