@@ -17,7 +17,7 @@ const IndexPage = props => {
 
       <div className="max-w-screen-xl mx-auto">
         <div className="px-10 pt-16">
-          <GradientHeading headingLevel={2}>
+          <GradientHeading headingLevel={3}>
             My <br /> work
           </GradientHeading>
         </div>
