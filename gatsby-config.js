@@ -12,6 +12,9 @@ module.exports = {
       options: {
         // replace "UA-XXXXXXXXX-X" with your own Tracking ID
         trackingId: 'UA-90488054-3',
+        anonymize: true,
+        respectDNT: true,
+        head: true,
       },
     },
     `gatsby-plugin-styled-components`,
