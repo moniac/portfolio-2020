@@ -1,5 +1,4 @@
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 import React from 'react';
 import containerStyles from './Nav.module.css';
 import Progress from '../Progress/Progress';
@@ -35,14 +34,6 @@ const Nav = props => {
       {showProgressBar && <Progress />}
     </nav>
   );
-};
-
-Nav.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Nav.defaultProps = {
-  siteTitle: ``,
 };
 
 export default Nav;

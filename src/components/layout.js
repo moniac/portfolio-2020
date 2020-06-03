@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import Seo from '../components/seo';
 
@@ -36,10 +35,6 @@ const Layout = ({ children, showProgressBar }) => {
       <main>{children}</main>
     </>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;
