@@ -32,7 +32,7 @@ const Controls = () => {
 };
 
 const Plane = () => (
-  <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
+  <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.5, 0]} receiveShadow>
     <planeBufferGeometry attach="geometry" args={[100, 100]} />
     <meshPhysicalMaterial attach="material" color="white" />
   </mesh>
@@ -43,7 +43,7 @@ const ThreeBox = props => {
   const [active, setActive] = useState(false);
   const springProps = useSpring({
     scale: active ? [1.5, 1.5, 1.5] : [1, 1, 1],
-    color: hovered ? 'red' : 'blue',
+    color: hovered ? 'red' : 'gray',
   });
 
   const boxRef = useRef();
@@ -69,7 +69,7 @@ const ThreeBox = props => {
         penumbra={1}
         castShadow
       />
-      <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
+      <boxBufferGeometry attach="geometry" args={[1, 4, 2]} />
       <a.meshPhysicalMaterial attach="material" color={springProps.color} />
     </a.mesh>
   );
@@ -79,21 +79,26 @@ export default () => {
   return (
     <Canvas
       className={containerStyles.ThreeCube}
-      camera={{ position: [0, 0, 8] }}
+      camera={{ position: [0, 0, 12] }}
       onCreated={({ gl }) => {
         gl.shadowMap.enabled = true;
         gl.shadowMap.type = THREE.PCFSoftShadowMap;
       }}
     >
       <ambientLight intensity={0.2} />
-      <spotLight position={[0, 30, 45]} penumbra={1} castShadow />
+      <spotLight
+        intensity={1}
+        position={[0, 20, 850]}
+        penumbra={1}
+        castShadow
+      />
       <fog attach="fog" args={['black', 10, 400]} />
       {/* <Plane /> */}
-      {/* <ThreeBox position={[0, 0, 0]} /> */}
-
+      <ThreeBox position={[0, 0, 0]} />
+      <ThreeBox position={[2, 0, 2]} />
       <Controls />
 
-      <Earth />
+      {/* <Earth /> */}
     </Canvas>
   );
 };
