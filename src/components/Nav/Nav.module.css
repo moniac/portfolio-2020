@@ -1,8 +1,8 @@
 .Nav {
   display: flex;
   justify-content: center;
-  background-color: var(--color-backgroundHighlight);
-  background-color: var(--color-background);
+  background-color: var(--color-headerBackground);
+  backdrop-filter: saturate(180%) blur(5px);
   position: sticky;
   top: 0;
   z-index: 5;

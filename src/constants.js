@@ -14,6 +14,10 @@ export const COLORS = {
     light: '#ffffff',
     dark: '#182635',
   },
+  headerBackground: {
+    light: 'hsla(0,0%,100%,0.8)',
+    dark: 'hsla(0,0%,0%,0.8)',
+  },
   progress: {
     light: '#f15b74',
     dark: '#21b3ff',
