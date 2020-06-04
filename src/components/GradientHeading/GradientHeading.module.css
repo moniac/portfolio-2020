@@ -20,6 +20,10 @@
   font-size: 4.8rem;
 }
 
+.GradientHeading-h3 {
+  font-size: 4.8rem;
+}
+
 @keyframes hue {
   from {
     -webkit-filter: hue-rotate(0deg);

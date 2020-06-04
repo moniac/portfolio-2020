@@ -1,5 +1,6 @@
 import React from 'react';
 import containerStyles from './PortfolioCard.module.css';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 const PortfolioCard = props => {
   const { title, togetherWith, togetherWithUrl, excerpt, workUrl } = props;
@@ -32,9 +33,13 @@ const PortfolioCard = props => {
         <div className={`${containerStyles.wave} wave`}></div>
       </div>
 
-      <a className={containerStyles.readmore} href={workUrl} target={'__blank'}>
+      <OutboundLink
+        className={containerStyles.readmore}
+        href={workUrl}
+        target={'__blank'}
+      >
         Visit
-      </a>
+      </OutboundLink>
     </div>
   );
 };
