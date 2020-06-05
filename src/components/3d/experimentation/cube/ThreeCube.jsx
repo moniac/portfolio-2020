@@ -20,10 +20,9 @@ const Controls = () => {
   return (
     <orbitControls
       autoRotate
-      orthographic
       autoRotateSpeed={0.4}
-      minPolarAngle={Math.PI / 3}
-      maxPolarAngle={Math.PI / 3}
+      // minPolarAngle={Math.PI / 3}
+      // maxPolarAngle={Math.PI / 3}
       enableZoom={false}
       ref={orbitRef}
       args={[camera, gl.domElement]}
@@ -79,7 +78,7 @@ export default () => {
   return (
     <Canvas
       className={containerStyles.ThreeCube}
-      camera={{ position: [0, 0, 12] }}
+      camera={{ position: [-5, 6, 9] }}
       onCreated={({ gl }) => {
         gl.shadowMap.enabled = true;
         gl.shadowMap.type = THREE.PCFSoftShadowMap;

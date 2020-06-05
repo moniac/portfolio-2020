@@ -42,7 +42,7 @@ const Header = () => {
           height: '100%',
           position: 'absolute',
           top: 0,
-          zIndex: 1,
+          zIndex: 0,
           // right: 0,
         }}
       >
