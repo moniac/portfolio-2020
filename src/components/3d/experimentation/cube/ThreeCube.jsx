@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, Suspense } from 'react';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { Canvas, useFrame, extend, useThree } from 'react-three-fiber';
+import { Canvas, useFrame, extend, useThree, Dom } from 'react-three-fiber';
 import { useSpring, a } from 'react-spring/three';
 import containerStyles from './ThreeCube.module.css';
 import * as THREE from 'three';
@@ -21,8 +21,8 @@ const Controls = () => {
     <orbitControls
       autoRotate
       autoRotateSpeed={0.4}
-      // minPolarAngle={Math.PI / 3}
-      // maxPolarAngle={Math.PI / 3}
+      minPolarAngle={Math.PI / 3}
+      maxPolarAngle={Math.PI / 3}
       enableZoom={false}
       ref={orbitRef}
       args={[camera, gl.domElement]}
@@ -36,6 +36,23 @@ const Plane = () => (
     <meshPhysicalMaterial attach="material" color="white" />
   </mesh>
 );
+
+function GroundPlane() {
+  return (
+    <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -2.5, 0]}>
+      <planeBufferGeometry attach="geometry" args={[500, 500]} />
+      <meshStandardMaterial attach="material" color="white" />
+    </mesh>
+  );
+}
+function BackDrop() {
+  return (
+    <mesh receiveShadow position={[0, -1, -50]}>
+      <planeBufferGeometry attach="geometry" args={[500, 500]} />
+      <meshStandardMaterial attach="material" color="white" />
+    </mesh>
+  );
+}
 
 const ThreeBox = props => {
   const { position, boxArgs = [1, 4, 2] } = props;
@@ -60,6 +77,8 @@ const ThreeBox = props => {
       onClick={() => setActive(!active)}
       scale={springProps.scale}
       castShadow
+      receiveShadow
+      visible
       position={position}
     >
       <boxBufferGeometry attach="geometry" args={boxArgs} />
@@ -72,7 +91,7 @@ export default () => {
   return (
     <Canvas
       className={containerStyles.ThreeCube}
-      camera={{ position: [-5, 6, 16] }}
+      camera={{ position: [-5, 16, 16] }}
       onCreated={({ gl }) => {
         gl.shadowMap.enabled = true;
         gl.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -85,7 +104,7 @@ export default () => {
         penumbra={1}
         castShadow
       />
-      <fog attach="fog" args={['black', 10, 400]} />
+      {/* <fog attach="fog" args={['black', 10, 400]} /> */}
       <group position={[0, 0, 0]}>
         <ThreeBox boxArgs={[1, 6, 2]} position={[2, 0, 2]} />
         <ThreeBox boxArgs={[1, 5, 2]} position={[0, 0, 0]} />
@@ -97,6 +116,8 @@ export default () => {
         <ThreeBox boxArgs={[1.5, 5, 3]} position={[5, 0, 3]} />
       </group>
       <Controls />
+      {/* <BackDrop /> */}
+      {/* <GroundPlane /> */}
       {/* <Plane /> */}
 
       {/* <Earth /> */}
