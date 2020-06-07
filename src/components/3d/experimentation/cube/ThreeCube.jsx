@@ -98,12 +98,7 @@ export default () => {
       }}
     >
       <ambientLight intensity={0.7} />
-      <spotLight
-        intensity={1}
-        position={[20, 20, 20]}
-        penumbra={1}
-        castShadow
-      />
+      <spotLight intensity={1} position={[20, 20, 20]} castShadow />
       {/* <fog attach="fog" args={['black', 10, 400]} /> */}
       <group position={[0, 0, 0]}>
         <ThreeBox boxArgs={[1, 6, 2]} position={[2, 0, 2]} />
