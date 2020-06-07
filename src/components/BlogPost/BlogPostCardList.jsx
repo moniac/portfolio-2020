@@ -66,7 +66,7 @@ export const MemoizedBlogPostCardList = React.memo(
 function everyItemIsTheSame(prevProps, nextProps) {
   const hasSameAmountOfItems = prevProps.posts.length && nextProps.posts.length;
   const hasSameItems = prevProps.posts.every((post, i) => {
-    return post.id === nextProps.posts.id;
+    return post.node.id === nextProps.posts[i].node.id;
   });
 
   const isSame = hasSameAmountOfItems && hasSameItems;
