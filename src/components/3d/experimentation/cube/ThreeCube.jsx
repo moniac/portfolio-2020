@@ -38,11 +38,12 @@ const Plane = () => (
 );
 
 const ThreeBox = props => {
+  const { position, boxArgs = [1, 4, 2] } = props;
   const [hovered, setHovered] = useState(false);
   const [active, setActive] = useState(false);
   const springProps = useSpring({
     scale: active ? [1.5, 1.5, 1.5] : [1, 1, 1],
-    color: hovered ? 'red' : 'gray',
+    color: hovered ? 'red' : '#b5b5b5',
   });
 
   const boxRef = useRef();
@@ -59,16 +60,9 @@ const ThreeBox = props => {
       onClick={() => setActive(!active)}
       scale={springProps.scale}
       castShadow
-      {...props}
+      position={position}
     >
-      <ambientLight intensity={0.5} />
-      <spotLight
-        intensity={0.6}
-        position={[0, 10, 15]}
-        penumbra={1}
-        castShadow
-      />
-      <boxBufferGeometry attach="geometry" args={[1, 4, 2]} />
+      <boxBufferGeometry attach="geometry" args={boxArgs} />
       <a.meshPhysicalMaterial attach="material" color={springProps.color} />
     </a.mesh>
   );
@@ -78,24 +72,32 @@ export default () => {
   return (
     <Canvas
       className={containerStyles.ThreeCube}
-      camera={{ position: [-5, 6, 9] }}
+      camera={{ position: [-5, 6, 16] }}
       onCreated={({ gl }) => {
         gl.shadowMap.enabled = true;
         gl.shadowMap.type = THREE.PCFSoftShadowMap;
       }}
     >
-      <ambientLight intensity={0.2} />
+      <ambientLight intensity={0.7} />
       <spotLight
         intensity={1}
-        position={[0, 20, 850]}
+        position={[20, 20, 20]}
         penumbra={1}
         castShadow
       />
       <fog attach="fog" args={['black', 10, 400]} />
-      {/* <Plane /> */}
-      <ThreeBox position={[0, 0, 0]} />
-      <ThreeBox position={[2, 0, 2]} />
+      <group position={[0, 0, 0]}>
+        <ThreeBox boxArgs={[1, 6, 2]} position={[2, 0, 2]} />
+        <ThreeBox boxArgs={[1, 5, 2]} position={[0, 0, 0]} />
+        <ThreeBox boxArgs={[1.5, 5, 3]} position={[5, 0, 3]} />
+      </group>
+      <group position={[4, 0, -4]}>
+        <ThreeBox boxArgs={[1, 6, 2]} position={[2, 0, 2]} />
+        <ThreeBox boxArgs={[1, 5, 2]} position={[0, 0, 0]} />
+        <ThreeBox boxArgs={[1.5, 5, 3]} position={[5, 0, 3]} />
+      </group>
       <Controls />
+      {/* <Plane /> */}
 
       {/* <Earth /> */}
     </Canvas>
