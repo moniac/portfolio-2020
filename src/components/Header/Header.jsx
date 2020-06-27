@@ -2,6 +2,8 @@ import React from 'react';
 import containerStyles from './Header.module.css';
 import { Link } from 'gatsby';
 import MoniacLogo from '../../images/mo_logo.inline.svg';
+import ThreeCube from '../3d/experimentation/cube/ThreeCube';
+import EarthGlobe from '../3d/experimentation/earth/EarthGlobe';
 
 const Header = () => {
   return (
@@ -34,6 +36,19 @@ const Header = () => {
         </div>
       </div>
 
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          top: 0,
+          zIndex: 0,
+          // right: 0,
+        }}
+      >
+        <ThreeCube />
+        {/* <EarthGlobe /> */}
+      </div>
       <div className="ocean">
         <div className="wave"></div>
         <div className="wave"></div>

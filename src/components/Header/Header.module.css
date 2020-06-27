@@ -18,4 +18,9 @@
 
 .Logo {
   margin-left: -14px;
+
+  ~ div {
+    position: absolute;
+    z-index: 2;
+  }
 }
