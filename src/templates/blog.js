@@ -65,6 +65,35 @@ export default function PageTemplate({ data: { mdx } }) {
           content={`A blog post about ${mdx.frontmatter.title}`}
         />
         <meta name="author" content="Mohammed Mulazada" />
+        <script type="application/ld+json">{`
+        {
+            "@context": "http://schema.org",
+            "@type": "BlogPosting",
+            "author": {
+              "@type": "Person",
+              "name": "Mohammed Mulazada",
+              "url": "https://mohammedmulazada.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Mohammed Mulazada",
+              "url": "https://mohammedmulazada.com",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "http://www.example.com/logo.png",
+                "width":"400",
+                "height":"55"
+              }
+            },
+            "image": "${
+              mdx.frontmatter.featuredImage.childImageSharp.fluid.src
+            }",
+            "headline": "${mdx.frontmatter.title}",
+            "datePublished": "${new Date(
+              mdx.frontmatter.datePublished
+            ).toISOString()}"
+        }
+    `}</script>
       </Helmet>
       <BlogContentLayout>
         <MDXProvider components={allComponents}>
@@ -113,6 +142,7 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        datePublished
         featuredImage {
           childImageSharp {
             fluid(maxWidth: 700, quality: 60) {
