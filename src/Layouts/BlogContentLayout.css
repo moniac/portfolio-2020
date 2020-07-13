@@ -172,4 +172,9 @@
       font-size: 19px;
     }
   }
+
+  .Blog-Header-Image {
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+  }
 }

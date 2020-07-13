@@ -12,6 +12,7 @@ import BlogContentLayout from '../Layouts/BlogContentLayout';
 import Slugger from 'github-slugger';
 import Img from 'gatsby-image';
 import { Helmet } from 'react-helmet';
+import { BlogHeader } from '../components/BlogHeader/BlogHeader';
 
 const slugger = new Slugger();
 
@@ -57,15 +58,53 @@ export default function PageTemplate({ data: { mdx } }) {
   slugger.reset();
 
   return (
-    <Layout showProgressBar={true}>
-      <Helmet>
-        <title>{mdx.frontmatter.title}</title>
-        <meta
-          name="description"
-          content={`A blog post about ${mdx.frontmatter.title}`}
-        />
-        <meta name="author" content="Mohammed Mulazada" />
-        <script type="application/ld+json">{`
+    <>
+      <Layout showProgressBar={true}>
+        <Helmet>
+          <title>{mdx.frontmatter.title}</title>
+          <meta
+            name="description"
+            content={`A blog post about ${mdx.frontmatter.title}`}
+          />
+          <meta name="author" content="Mohammed Mulazada" />
+        </Helmet>
+        <BlogContentLayout>
+          <MDXProvider components={allComponents}>
+            <div className="blog-content lg:flex-1">
+              <BlogHeader
+                title={mdx.frontmatter.title}
+                date={mdx.frontmatter.datePublished}
+                timeToRead={mdx.timeToRead}
+              />
+              <Img
+                className="Blog-Header-Image"
+                fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid}
+              />
+              <MDXRenderer headings={mdx.headings}>{mdx.body}</MDXRenderer>
+            </div>
+          </MDXProvider>
+          {Boolean(mdx.headings.length) && (
+            <aside className="blog-sidebar hidden lg:block ml-40 sticky lg:flex-1">
+              <ul>
+                <li className="mb-4 text-2xl">
+                  <b>Table of Contents</b>
+                </li>
+                {mdx.headings.map((heading, i) => (
+                  <li key={`${heading.value} - ${i}`}>
+                    <Link
+                      to={`${mdx.fields.slug}#${slugger.slug(heading.value)}`}
+                    >
+                      {heading.value}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          )}
+        </BlogContentLayout>
+      </Layout>
+
+      <script async defer type="application/ld+json">{`
         {
             "@context": "http://schema.org",
             "@type": "BlogPosting",
@@ -91,38 +130,11 @@ export default function PageTemplate({ data: { mdx } }) {
             "headline": "${mdx.frontmatter.title}",
             "datePublished": "${new Date(
               mdx.frontmatter.datePublished
-            ).toISOString()}"
+            ).toISOString()}",
+            "mainEntityOfPage": "true"
         }
     `}</script>
-      </Helmet>
-      <BlogContentLayout>
-        <MDXProvider components={allComponents}>
-          <div className="blog-content lg:flex-1">
-            <GradientHeading>{mdx.frontmatter.title}</GradientHeading>
-            <Img fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid} />
-            <MDXRenderer headings={mdx.headings}>{mdx.body}</MDXRenderer>
-          </div>
-        </MDXProvider>
-        {Boolean(mdx.headings.length) && (
-          <aside className="blog-sidebar hidden lg:block ml-40 sticky lg:flex-1">
-            <ul>
-              <li className="mb-4 text-2xl">
-                <b>Table of Contents</b>
-              </li>
-              {mdx.headings.map((heading, i) => (
-                <li key={`${heading.value} - ${i}`}>
-                  <Link
-                    to={`${mdx.fields.slug}#${slugger.slug(heading.value)}`}
-                  >
-                    {heading.value}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </aside>
-        )}
-      </BlogContentLayout>
-    </Layout>
+    </>
   );
 }
 
@@ -130,6 +142,7 @@ export const pageQuery = graphql`
   query BlogPostQuery($id: String) {
     mdx(id: { eq: $id }, fields: { instance: { eq: "blog" } }) {
       id
+      timeToRead
       body
       tableOfContents
       headings {
