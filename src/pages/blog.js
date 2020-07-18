@@ -24,7 +24,10 @@ const BlogIndex = ({ data }) => {
 
 export const pageQuery = graphql`
   query blogIndex {
-    allMdx(filter: { fields: { instance: { eq: "blog" } } }) {
+    allMdx(
+      filter: { fields: { instance: { eq: "blog" } } }
+      sort: { fields: frontmatter___datePublished, order: DESC }
+    ) {
       edges {
         node {
           id
@@ -33,7 +36,7 @@ export const pageQuery = graphql`
             title
             featuredImage {
               childImageSharp {
-                fluid(maxWidth: 400, quality: 60) {
+                fluid(maxWidth: 400, maxHeight: 300, quality: 60) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }

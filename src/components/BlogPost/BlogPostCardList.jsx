@@ -33,6 +33,7 @@ export const BlogPostCardList = props => {
             positionTransition={true}
             exit={{ opacity: 0 }}
             className="w-full"
+            layout
           >
             <Link
               key={post.fields.slug}

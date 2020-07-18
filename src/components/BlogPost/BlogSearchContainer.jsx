@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ZeroState from '../../images/blog_empty_state.inline.svg';
-import { MemoizedBlogPostCardList } from './BlogPostCardList';
+import { BlogPostCardList } from './BlogPostCardList';
 
 export const BlogSearchContainer = props => {
   const { posts } = props;
@@ -65,5 +65,5 @@ function renderZeroState() {
 }
 
 function renderBlogPosts(allPosts) {
-  return <MemoizedBlogPostCardList posts={allPosts} />;
+  return <BlogPostCardList posts={allPosts} />;
 }

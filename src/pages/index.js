@@ -12,7 +12,7 @@ const IndexPage = props => {
 
   return (
     <Layout>
-      <SEO title="Portfolio" />
+      <SEO title="Home" />
       <Header />
 
       <div className="max-w-screen-xl mx-auto">
