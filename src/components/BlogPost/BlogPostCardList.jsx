@@ -53,16 +53,7 @@ export const BlogPostCardList = props => {
   );
 };
 
-export const MemoizedBlogPostCardList = React.memo(
-  BlogPostCardList,
-  (prevProps, nextProps) => {
-    if (everyItemIsTheSame(prevProps, nextProps)) {
-      return true;
-    }
-
-    return false;
-  }
-);
+export const MemoizedBlogPostCardList = React.memo(BlogPostCardList);
 
 function everyItemIsTheSame(prevProps, nextProps) {
   const hasSameAmountOfItems = prevProps.posts.length && nextProps.posts.length;
