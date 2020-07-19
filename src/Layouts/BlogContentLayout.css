@@ -31,6 +31,17 @@
       margin-bottom: 1.55rem;
     }
 
+    .twitter-tweet {
+      @media (max-width: 400px) {
+        margin-left: -2rem;
+        margin-right: -2rem;
+        width: inherit !important;
+      }
+
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     h2,
     h3,
     h4,
