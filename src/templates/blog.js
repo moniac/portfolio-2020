@@ -8,11 +8,12 @@ import Layout from '../components/layout';
 import Code from '../components/Code';
 import theme from 'prism-react-renderer/themes/nightOwl';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
-import BlogContentLayout from '../Layouts/BlogContentLayout';
 import Slugger from 'github-slugger';
 import Img from 'gatsby-image';
 import { Helmet } from 'react-helmet';
 import { BlogHeader } from '../components/BlogHeader/BlogHeader';
+import { ThemeContext } from '../components/ThemeContext';
+import GridLayout from '../Layouts/GridLayout';
 
 const slugger = new Slugger();
 
@@ -55,6 +56,7 @@ const replacedComponents = {
 const allComponents = { ...shortcodes, ...replacedComponents };
 
 export default function PageTemplate({ data: { mdx } }) {
+  const { colorMode } = React.useContext(ThemeContext);
   slugger.reset();
 
   return (
@@ -68,40 +70,51 @@ export default function PageTemplate({ data: { mdx } }) {
           />
           <meta name="author" content="Mohammed Mulazada" />
         </Helmet>
-        <BlogContentLayout>
-          <MDXProvider components={allComponents}>
-            <div className="blog-content lg:flex-1">
-              <BlogHeader
-                title={mdx.frontmatter.title}
-                date={mdx.frontmatter.datePublished}
-                timeToRead={mdx.timeToRead}
-              />
-              <Img
-                className="Blog-Header-Image"
-                fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid}
-              />
-              <MDXRenderer headings={mdx.headings}>{mdx.body}</MDXRenderer>
-            </div>
-          </MDXProvider>
-          {Boolean(mdx.headings.length) && (
-            <aside className="blog-sidebar hidden lg:block ml-40 sticky lg:flex-1">
-              <ul>
-                <li className="mb-4 text-2xl">
-                  <b>Table of Contents</b>
-                </li>
-                {mdx.headings.map((heading, i) => (
-                  <li key={`${heading.value} - ${i}`}>
-                    <Link
-                      to={`${mdx.fields.slug}#${slugger.slug(heading.value)}`}
-                    >
-                      {heading.value}
-                    </Link>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: '0 2rem',
+          }}
+        >
+          <GridLayout>
+            <MDXProvider title="test" components={allComponents}>
+              <div className="blog-content lg:flex-1">
+                <BlogHeader
+                  title={mdx.frontmatter.title}
+                  date={mdx.frontmatter.datePublished}
+                  timeToRead={mdx.timeToRead}
+                />
+                <Img
+                  className="Blog-Header-Image"
+                  fluid={mdx.frontmatter.featuredImage.childImageSharp.fluid}
+                />
+                <MDXRenderer lightOrDarkmode={colorMode}>
+                  {mdx.body}
+                </MDXRenderer>
+              </div>
+            </MDXProvider>
+            {Boolean(mdx.headings.length) && (
+              <aside className="blog-sidebar hidden lg:block ml-40 sticky lg:flex-1">
+                <ul>
+                  <li className="mb-4 text-2xl">
+                    <b>Table of Contents</b>
                   </li>
-                ))}
-              </ul>
-            </aside>
-          )}
-        </BlogContentLayout>
+                  {mdx.headings.map((heading, i) => (
+                    <li key={`${heading.value} - ${i}`}>
+                      <Link
+                        to={`${mdx.fields.slug}#${slugger.slug(heading.value)}`}
+                      >
+                        {heading.value}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
+            )}
+          </GridLayout>
+        </div>
       </Layout>
 
       <script async defer type="application/ld+json">{`

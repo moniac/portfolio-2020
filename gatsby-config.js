@@ -14,6 +14,7 @@ module.exports = {
         trackingId: 'UA-90488054-3',
       },
     },
+    `@pauliescanlon/gatsby-mdx-embed`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
