@@ -17,8 +17,8 @@
   }
 
   .blog-footer {
+    place-self: center;
     > div {
-      place-self: center;
     }
     > div > * + * {
       margin-left: 0.4rem;
