@@ -14,6 +14,18 @@ import { Helmet } from 'react-helmet';
 import { BlogHeader } from '../components/BlogHeader/BlogHeader';
 import { ThemeContext } from '../components/ThemeContext';
 import GridLayout from '../Layouts/GridLayout';
+import {
+  EmailShareButton,
+  LinkedinShareButton,
+  RedditShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  TwitterIcon,
+  EmailIcon,
+  LinkedinIcon,
+  WhatsappIcon,
+  RedditIcon,
+} from 'react-share';
 
 const slugger = new Slugger();
 
@@ -113,6 +125,53 @@ export default function PageTemplate({ data: { mdx } }) {
                 </ul>
               </aside>
             )}
+
+            <footer className="mt-8">
+              <p className="mb-4 text-center">
+                Did you like this article? <br /> If you did, please consider
+                sharing :)
+              </p>
+              <div className="flex justify-center align-center">
+                <EmailShareButton
+                  bgStyle={'red'}
+                  iconFillColor="white"
+                  title={mdx.frontmatter.title}
+                  url={`https://mohammedmulazada.com/${mdx.fields.slug}`}
+                >
+                  <EmailIcon size={32} round={true} />
+                </EmailShareButton>
+                <LinkedinShareButton
+                  title={mdx.frontmatter.title}
+                  url={`https://mohammedmulazada.com/${mdx.fields.slug}`}
+                  summary={'adsasdasdsadas'}
+                  source={'adasda??????'}
+                >
+                  <LinkedinIcon size={32} round={true} />
+                </LinkedinShareButton>
+                <RedditShareButton
+                  title={mdx.frontmatter.title}
+                  url={`https://mohammedmulazada.com/${mdx.fields.slug}`}
+                  size={20}
+                  bgStyle={'red'}
+                  iconFillColor="white"
+                >
+                  <RedditIcon size={32} round={true} />
+                </RedditShareButton>
+                <TwitterShareButton
+                  title={mdx.frontmatter.title}
+                  via={'thisismoniac'}
+                  url={`https://mohammedmulazada.com/${mdx.fields.slug}`}
+                >
+                  <TwitterIcon size={32} round={true} />
+                </TwitterShareButton>
+                <WhatsappShareButton
+                  title={mdx.frontmatter.title}
+                  url={`https://mohammedmulazada.com/${mdx.fields.slug}`}
+                >
+                  <WhatsappIcon size={32} round={true} />
+                </WhatsappShareButton>
+              </div>
+            </footer>
           </GridLayout>
         </div>
       </Layout>
