@@ -15,4 +15,10 @@
     place-items: flex-start;
     grid-template-columns: 1fr minmax(550px, 25%);
   }
+
+  .blog-footer {
+    > div > * + * {
+      margin-left: 0.4rem;
+    }
+  }
 }

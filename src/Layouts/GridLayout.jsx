@@ -1,6 +1,6 @@
 import React from 'react';
-import containerStyles from './GridLayout.module.css';
+import './GridLayout.css';
 
 export default props => {
-  return <div className={containerStyles.GridLayout}>{props.children}</div>;
+  return <div className={'GridLayout'}>{props.children}</div>;
 };
