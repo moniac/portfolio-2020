@@ -136,13 +136,13 @@ export default function PageTemplate({ data: { mdx } }) {
                   bgStyle={'red'}
                   iconFillColor="white"
                   title={mdx.frontmatter.title}
-                  url={`https://mohammedmulazada.com/${mdx.fields.slug}`}
+                  url={`https://mohammedmulazada.com${mdx.fields.slug}`}
                 >
                   <EmailIcon size={32} round={true} />
                 </EmailShareButton>
                 <LinkedinShareButton
                   title={mdx.frontmatter.title}
-                  url={`https://mohammedmulazada.com/${mdx.fields.slug}`}
+                  url={`https://mohammedmulazada.com${mdx.fields.slug}`}
                   summary={'adsasdasdsadas'}
                   source={'adasda??????'}
                 >
@@ -150,7 +150,7 @@ export default function PageTemplate({ data: { mdx } }) {
                 </LinkedinShareButton>
                 <RedditShareButton
                   title={mdx.frontmatter.title}
-                  url={`https://mohammedmulazada.com/${mdx.fields.slug}`}
+                  url={`https://mohammedmulazada.com${mdx.fields.slug}`}
                   size={20}
                   bgStyle={'red'}
                   iconFillColor="white"
@@ -160,13 +160,13 @@ export default function PageTemplate({ data: { mdx } }) {
                 <TwitterShareButton
                   title={mdx.frontmatter.title}
                   via={'thisismoniac'}
-                  url={`https://mohammedmulazada.com/${mdx.fields.slug}`}
+                  url={`https://mohammedmulazada.com${mdx.fields.slug}`}
                 >
                   <TwitterIcon size={32} round={true} />
                 </TwitterShareButton>
                 <WhatsappShareButton
                   title={mdx.frontmatter.title}
-                  url={`https://mohammedmulazada.com/${mdx.fields.slug}`}
+                  url={`https://mohammedmulazada.com${mdx.fields.slug}`}
                 >
                   <WhatsappIcon size={32} round={true} />
                 </WhatsappShareButton>
