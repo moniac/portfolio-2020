@@ -126,7 +126,7 @@ export default function PageTemplate({ data: { mdx } }) {
               </aside>
             )}
 
-            <footer className="blog-footer mt-8">
+            <footer className="blog-footer my-16">
               <p className="mb-4 text-center">
                 Did you like this article? <br /> If you did, please consider
                 sharing :)
