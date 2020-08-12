@@ -7,7 +7,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.11",
     "@mdx-js/react": "^1.6.11",
-    "@pauliescanlon/gatsby-mdx-embed": "0.0.21",
+    "@pauliescanlon/gatsby-mdx-embed": "0.0.26",
     "autoprefixer": "^9.8.5",
     "framer-motion": "^2.2.0",
     "gatsby": "^2.24.4",
